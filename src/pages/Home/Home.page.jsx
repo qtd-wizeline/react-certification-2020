@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
-import Header from '../Header';
+import Header from '../components/Header';
 
 function HomePage() {
   const history = useHistory();
