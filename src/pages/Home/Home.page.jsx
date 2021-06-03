@@ -3,7 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
-import Header from '../../components/Header';
+import mockData from '../../../public/youtube-videos-mock.json';
+import CardItem from '../../components/CardItem'
 
 function HomePage() {
   const history = useHistory();
@@ -19,7 +20,7 @@ function HomePage() {
   return (
     <section className="homepage" ref={sectionRef}>
       {/* <Header /> */}
-      <h1>Hello stranger!</h1>
+      {/* <h1>Hello stranger!</h1>
       {authenticated ? (
         <>
           <h2>Good to have you back</h2>
@@ -28,12 +29,13 @@ function HomePage() {
               ← logout
             </Link>
             <span className="separator" />
-            {/* <Link to="/secret">show me something cool →</Link> */}
+            <Link to="/secret">show me something cool →</Link>
           </span>
         </>
       ) : (
         <Link to="/login">let me in →</Link>
-      )}
+      )} */}
+      <div className="cards">{mockData.items.map((d) => CardItem(d))}</div>
     </section>
   );
 }
