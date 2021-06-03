@@ -97,7 +97,7 @@
             g.a,
             {
               hoverable: !0,
-              style: { width: 345 },
+              style: { width: 345, height: 340 },
               cover: a.a.createElement('img', {
                 alt: l.snippet.title,
                 src: l.snippet.thumbnails.medium.url,
@@ -956,4 +956,4 @@
   },
   [[66, 1, 2]],
 ]);
-//# sourceMappingURL=main.f52726d5.chunk.js.map
+//# sourceMappingURL=main.57fe5aa3.chunk.js.map

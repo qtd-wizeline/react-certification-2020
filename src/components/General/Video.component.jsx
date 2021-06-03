@@ -12,7 +12,7 @@ export function VideoCard({ item }) {
     <div className="video-card">
       <Card
         hoverable
-        style={{ width: 345 }}
+        style={{ width: 345, height: 340 }}
         cover={
           <img
             alt={video.snippet.title}
