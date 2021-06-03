@@ -8,8 +8,9 @@ function Header() {
 
   return (
     <header className="header">
-      <button className="button" />
+      <button className="button-left">Navigation</button>
       <input disabled/>
+      <button className="button-right">Login</button>
     </header>
   );
 }

@@ -6,6 +6,10 @@
   background-color: black;
 }
 
-.button {
+.button-left {
   left: 0%;
+}
+
+.button-right {
+  right: 100%;
 }
