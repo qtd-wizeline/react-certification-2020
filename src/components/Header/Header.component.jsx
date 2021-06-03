@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <header className="header">
-      'Header Text!'
+      <input />
     </header>
   );
 }
