@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <header className="header">
-      <input />
+      <input disabled/>
     </header>
   );
 }
