@@ -3,10 +3,10 @@ import React from 'react';
 // import { useFortune } from '../../utils/hooks/useFortune';
 import './Header.styles.css';
 
-function Fortune() {
+function Header() {
   const text = 'Demo App! Welcome!';
 
-  return <header className="fortune">{text} </header>;
+  return <header className="header">{text} </header>;
 }
 
-export default Fortune;
+export default Header;
