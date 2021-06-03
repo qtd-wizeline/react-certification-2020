@@ -33,9 +33,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header>
-      </Header>
       <AuthProvider>
+        <Header>
+        </Header>
         <Layout>
           <Switch>
             <Route exact path="/">
