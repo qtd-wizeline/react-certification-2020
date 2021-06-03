@@ -1,1 +1,2 @@
-export { default } from './Layout.component';
+export { HeaderBar } from './HeaderBar.component';
+export { Content } from './Content.component';
