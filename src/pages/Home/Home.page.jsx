@@ -18,7 +18,7 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <Header />
+      {/* <Header /> */}
       <h1>Hello stranger!</h1>
       {authenticated ? (
         <>
