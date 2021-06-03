@@ -8,6 +8,7 @@ function Header() {
 
   return (
     <header className="header">
+      <button className="button" />
       <input disabled/>
     </header>
   );
