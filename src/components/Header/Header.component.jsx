@@ -6,7 +6,11 @@ import './Header.styles.css';
 function Header() {
   const text = 'Demo App! Welcome!';
 
-  return <header className="header">{text} </header>;
+  return (
+    <header className="header">
+      'Header Text!'
+    </header>
+  );
 }
 
 export default Header;
