@@ -5,6 +5,7 @@ import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 import mockData from '../../../public/youtube-videos-mock.json';
 import CardItem from '../../components/CardItem'
+import Header from '../../components/Header';
 
 function HomePage() {
   const history = useHistory();
@@ -19,8 +20,8 @@ function HomePage() {
 
   return (
     <body>
+      <Header />
       <section className="homepage" ref={sectionRef}>
-        {/* <Header /> */}
         {/* <h1>Hello stranger!</h1>
         {authenticated ? (
           <>
