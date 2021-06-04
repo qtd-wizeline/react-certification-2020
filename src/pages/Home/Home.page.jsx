@@ -11,6 +11,7 @@ function HomePage() {
   const history = useHistory();
   const sectionRef = useRef(null);
   // const { authenticated, logout } = useAuth();
+  const trimmedArray = mockData.items.slice(0, 3);
 
   function deAuthenticate(event) {
     event.preventDefault();
@@ -35,7 +36,7 @@ function HomePage() {
       ) : (
         <Link to="/login">let me in →</Link>
       )} */}
-      <div className="cards">{mockData.items.map((d) => CardItem(d))}</div>
+      <div className="cards">{trimmedArray.map((d) => CardItem(d))}</div>
     </section>
 
   );
