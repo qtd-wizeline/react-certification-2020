@@ -7,6 +7,7 @@ import data from './youtube-videos-mock.json';
 const mockData = data.items.map((item) => {
   return (
     <CardItem
+      key={item.etag}
       title={item.snippet.title}
       description={item.snippet.description}
       thumbnails={item.snippet.thumbnails.high.url}
