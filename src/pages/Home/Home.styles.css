@@ -6,3 +6,10 @@
   font-size: 3rem;
   letter-spacing: -2px;
 }
+
+div.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 20px;
+}
