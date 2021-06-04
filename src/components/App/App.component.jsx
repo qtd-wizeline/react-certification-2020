@@ -33,7 +33,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       {/* <AuthProvider> */}
       <Layout>
         <Switch>
