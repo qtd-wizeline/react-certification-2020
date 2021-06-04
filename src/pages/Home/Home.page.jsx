@@ -18,25 +18,28 @@ function HomePage() {
   }
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      {/* <Header /> */}
-      {/* <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )} */}
-      <div className="cards">{mockData.items.map((d) => CardItem(d))}</div>
-    </section>
+    <body>
+      <section className="homepage" ref={sectionRef}>
+        {/* <Header /> */}
+        {/* <h1>Hello stranger!</h1>
+        {authenticated ? (
+          <>
+            <h2>Good to have you back</h2>
+            <span>
+              <Link to="/" onClick={deAuthenticate}>
+                ← logout
+              </Link>
+              <span className="separator" />
+              <Link to="/secret">show me something cool →</Link>
+            </span>
+          </>
+        ) : (
+          <Link to="/login">let me in →</Link>
+        )} */}
+        <div className="cards">{mockData.items.map((d) => CardItem(d))}</div>
+      </section>
+    </body>
+
   );
 }
 
