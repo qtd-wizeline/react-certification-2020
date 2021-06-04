@@ -11,7 +11,7 @@ function HomePage() {
   const history = useHistory();
   const sectionRef = useRef(null);
   // const { authenticated, logout } = useAuth();
-  const trimmedArray = mockData.items.slice(0, 3);
+  const trimmedArray = mockData.items.slice(0, mockData.items.length);
 
   function deAuthenticate(event) {
     event.preventDefault();
