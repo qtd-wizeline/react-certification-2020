@@ -28,7 +28,6 @@ function Body(item) {
           <NotFound />
         </Route>
       </Switch>
-      <Fortune />
     </Layout>
   );
 }
