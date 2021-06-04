@@ -15,7 +15,7 @@ div.card-item {
   flex-basis: calc(20% - 22px);
 }
 
-.card-item > h1 {
+.card-item > h2 {
   color: black;
   font-size: 1em;
 }
