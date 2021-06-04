@@ -7,7 +7,7 @@ function Header(item) {
   const text = 'Demo App! Welcome!';
 
   return (
-    <div className="card-item">
+    <div className="card-item" key={item}>
       <div className="card-title">
         <h4>{item.snippet.title}</h4>
       </div>
