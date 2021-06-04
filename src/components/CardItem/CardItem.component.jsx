@@ -9,7 +9,7 @@ function Header(item) {
   return (
     <div>
       <h2>{item.snippet.title}</h2>
-      <p>{item.snippet.description}</p> 
+      {/* <p>{item.snippet.description}</p>  */}
     </div>
   );
 }
