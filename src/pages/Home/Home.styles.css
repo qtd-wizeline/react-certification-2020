@@ -1,5 +1,6 @@
 .homepage {
   text-align: center;
+  overflow: auto;
 }
 
 .homepage h1 {
