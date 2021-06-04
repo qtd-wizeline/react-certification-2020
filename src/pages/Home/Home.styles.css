@@ -19,7 +19,9 @@ div.cards {
 .cards {
   display: flex;
   flex-wrap: wrap;
-  margin: 3px;
+  margin-top: 3px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px;
   overflow: auto;
 }
