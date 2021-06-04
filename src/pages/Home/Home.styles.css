@@ -1,6 +1,6 @@
 .homepage {
   text-align: center;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .homepage h1 {
@@ -13,5 +13,5 @@ div.cards {
   flex-wrap: wrap;
   margin: 3px;
   padding: 20px;
-  overflow: scroll;
+  overflow: auto;
 }
