@@ -69,3 +69,7 @@ img {
   visibility: visible;
   opacity: 1;
 }
+
+.card-title {
+  margin: 1px;
+}
