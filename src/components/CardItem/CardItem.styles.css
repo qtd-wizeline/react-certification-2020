@@ -20,6 +20,14 @@ div.card-item {
   font-size: 1em;
 }
 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  height: fit-content;
+}
+
 .button-left {
   left: 0%;
 }
@@ -33,6 +41,9 @@ div.card-item {
   position: relative;
   height: 200px;
   width: 257px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
 }
 
 .img__description {
@@ -44,11 +55,14 @@ div.card-item {
   background: rgba(29, 106, 154, 0.72);
   color: #fff;
   visibility: hidden;
+  height: auto;
   opacity: 0;
   text-align: center;
 
   /* transition effect. not necessary */
   transition: opacity .2s, visibility .2s;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .img__wrap:hover .img__description {

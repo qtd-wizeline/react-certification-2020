@@ -8,9 +8,11 @@ function Header(item) {
 
   return (
     <div className="card-item">
-      <h4>{item.snippet.title}</h4>
+      <div className="card-title">
+        <h4>{item.snippet.title}</h4>
+      </div>
       <div className="img__wrap">
-        <img src={item.snippet.thumbnails.medium.url} />
+        <img className="center" src={item.snippet.thumbnails.medium.url} />
         <p className="img__description">{item.snippet.description}</p>
       </div>
     </div>
