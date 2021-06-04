@@ -9,7 +9,7 @@ import CardItem from '../../components/CardItem'
 function HomePage() {
   const history = useHistory();
   const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  // const { authenticated, logout } = useAuth();
 
   function deAuthenticate(event) {
     event.preventDefault();
