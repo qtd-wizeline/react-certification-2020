@@ -10,7 +10,7 @@ function Header(item) {
     <div className="card-item">
       <h4>{item.snippet.title}</h4>
       <div className="img__wrap">
-        <img src={item.snippet.thumbnails.default.medium} />
+        <img src={item.snippet.thumbnails.default.medium.url} />
         <p className="img__description">{item.snippet.description}</p>
       </div>
     </div>

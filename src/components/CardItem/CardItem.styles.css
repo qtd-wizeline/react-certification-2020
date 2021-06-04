@@ -45,6 +45,7 @@ div.card-item {
   color: #fff;
   visibility: hidden;
   opacity: 0;
+  text-align: center;
 
   /* transition effect. not necessary */
   transition: opacity .2s, visibility .2s;
