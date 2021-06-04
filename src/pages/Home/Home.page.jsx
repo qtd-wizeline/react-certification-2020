@@ -36,7 +36,7 @@ function HomePage() {
         ) : (
           <Link to="/login">let me in →</Link>
         )} */}
-        {/* <div className="cards">{mockData.items.map((d) => CardItem(d))}</div> */}
+        <div className="cards">{mockData.items.map((d) => CardItem(d))}</div>
       </section>
     </body>
 
