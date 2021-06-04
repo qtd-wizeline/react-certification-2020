@@ -6,6 +6,8 @@ import { Switch, Route } from 'react-router-dom';
 import './Body.styles.css';
 import Layout from '../Layout';
 import HomePage from '../../pages/Home';
+import NotFound from '../../pages/NotFound';
+
 
 function Body(item) {
   const text = 'Demo App! Welcome!';
