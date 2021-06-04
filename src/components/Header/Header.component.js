@@ -36,6 +36,14 @@ const NavGroup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  div {
+    display: flex;
+    align-items: center;
+  }
+  small {
+    font-size: 15px;
+    margin-right: 30px;
+  }
 `;
 
 const SearchBar = styled.div`
@@ -74,13 +82,7 @@ const FaSearchBar = styled.div`
   position: absolute;
 `;
 
-const Label = styled.label`
-  small {
-    font-size: 20px;
-  }
-`;
-
-const ButtonCheck = styled.button`
+const ButtonUser = styled.button`
   background-color: #cacaca;
   border: none;
   border-radius: 50%;
@@ -91,6 +93,51 @@ const ButtonCheck = styled.button`
     height: 20px;
     color: white;
 }
+  }
+`;
+
+const Label = styled.label`
+  position: relative;
+  display: inline-flex;
+  width: 60px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background-color: #ccc;
+    /* -webkit-transition: 1s; */
+    transition: all 0.4s ease !important;
+  }
+  span:before {
+    position: absolute;
+    content: '';
+    height: 21px;
+    width: 21px;
+    left: 5px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: white;
+    /* -webkit-transition: 1s; */
+    transition: all 0.4s ease !important;
+  }
+  input:checked + span {
+    background-color: #2196f3;
+  }
+  input:checked + span:before {
+    transform: translateX(29px);
   }
 `;
 
@@ -113,12 +160,13 @@ const StyledHeader = () => {
         <NavGroup>
           <div>
             <Label>
-              <span></span>
-              <small>Dark mode</small>
+              <input type="checkbox" />
+              <span class="slider"></span>
             </Label>
-            <ButtonCheck>
+            <small>Dark mode</small>
+            <ButtonUser>
               <FaUser />
-            </ButtonCheck>
+            </ButtonUser>
           </div>
         </NavGroup>
       </Wrapper>
