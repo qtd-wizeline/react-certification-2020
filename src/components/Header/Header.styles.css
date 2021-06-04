@@ -1,8 +1,8 @@
 .header {
-  text-align: center;
+  /* text-align: center; */
   color: white;
   margin: 0;
-  height: 3em;
+  height: 5em;
   background-color: black;
 }
 
