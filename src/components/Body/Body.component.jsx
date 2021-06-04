@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 // import { useFortune } from '../../utils/hooks/useFortune';
-import './CardItem.styles.css';
+import './Body.styles.css';
 import HomePage from '../../pages/Home';
 
 function Body(item) {
