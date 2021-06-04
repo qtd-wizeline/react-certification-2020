@@ -7,12 +7,13 @@
 }
 
 div.card-item {
-  height: 300px;
+  height: 330px;
   background-color: white;
   border-radius: 5px;
   border: 1px solid #ddd;
   margin: 5px;
   flex-basis: calc(20% - 22px);
+  position: relative;
 }
 
 .card-item > h4 {
@@ -39,11 +40,14 @@ img {
 /* relevant styles */
 .img__wrap {
   position: relative;
-  height: 200px;
-  width: 257px;
+  height: auto;
+  width: auto;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
+  display: inline-block;
+  margin-bottom: inherit;
+  bottom: 0;
 }
 
 .img__description {
@@ -72,4 +76,5 @@ img {
 
 .card-title {
   margin: 1px;
+  height: 56px;
 }
