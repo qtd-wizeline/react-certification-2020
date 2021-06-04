@@ -8,8 +8,10 @@
 
 .button-left {
   left: 0%;
+  float: left;
 }
 
 .button-right {
   right: 100%;
+  float: right;
 }
