@@ -36,7 +36,9 @@ function HomePage() {
       ) : (
         <Link to="/login">let me in →</Link>
       )} */}
-      <div className="cards">{trimmedArray.map((d) => CardItem(d))}</div>
+      <div className="container">
+        <div className="cards">{trimmedArray.map((d) => CardItem(d))}</div>
+      </div>
     </section>
 
   );
