@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 
 // import { useFortune } from '../../utils/hooks/useFortune';
 import './Body.styles.css';
+import Layout from '../Layout';
 import HomePage from '../../pages/Home';
 
 function Body(item) {
