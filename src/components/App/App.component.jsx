@@ -33,26 +33,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <Header /> */}
-      {/* <AuthProvider> */}
-      <Layout>
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Private exact path="/secret">
-            <SecretPage />
-          </Private>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-        <Fortune />
-      </Layout>
-      {/* </AuthProvider> */}
+      <Header />
+      <Body />
     </BrowserRouter>
   );
 }
