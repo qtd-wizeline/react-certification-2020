@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 // import { useFortune } from '../../utils/hooks/useFortune';
 import './CardItem.styles.css';
+import HomePage from '../../pages/Home';
 
 function Body(item) {
   const text = 'Demo App! Welcome!';
@@ -14,12 +15,12 @@ function Body(item) {
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route exact path="/login">
+        {/* <Route exact path="/login">
           <LoginPage />
         </Route>
         <Private exact path="/secret">
           <SecretPage />
-        </Private>
+        </Private> */}
         <Route path="*">
           <NotFound />
         </Route>
