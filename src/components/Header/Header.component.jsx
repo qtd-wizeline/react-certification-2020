@@ -10,9 +10,7 @@ function Header() {
     <header className="header">
       <div>
         <button className="button-left">Navigation</button>
-        <div>
-          <input disabled />
-        </div>
+        <input disabled />
         <button className="button-right">Login</button>
       </div>
     </header>
