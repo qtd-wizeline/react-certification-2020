@@ -11,7 +11,7 @@
   float: left;
   /* Adapt the colors based on primary prop */
   background: #ede9e8;
-  color: #ede9e8;
+  color: gray;
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
@@ -24,7 +24,7 @@
   float: right;
   /* Adapt the colors based on primary prop */
   background: white;
-  color: white;
+  color: black;
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
