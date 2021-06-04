@@ -9,7 +9,10 @@ function Header(item) {
   return (
     <div className="card-item">
       <h4>{item.snippet.title}</h4>
-      {/* <p>{item.snippet.description}</p>  */}
+      <img 
+        src={item.snippet.thumbnails.default.url} 
+      />
+      <p>{item.snippet.description}</p> 
     </div>
   );
 }
