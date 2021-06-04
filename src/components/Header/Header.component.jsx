@@ -7,13 +7,13 @@ function Header() {
   const text = 'Demo App! Welcome!';
 
   return (
-    <head className="header">
+    <header className="header">
       <div>
         <button className="button-left">Navigation</button>
         <input disabled/>
         <button className="button-right">Login</button>
       </div>
-    </head>
+    </header>
   );
 }
 
