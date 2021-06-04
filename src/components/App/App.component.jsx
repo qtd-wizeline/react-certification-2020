@@ -36,17 +36,20 @@ function App() {
       {/* <AuthProvider> */}
       <Layout>
         <Switch>
-          <Header />
           <Route exact path="/">
+            <Header />
             <HomePage />
           </Route>
           <Route exact path="/login">
+            <Header />
             <LoginPage />
           </Route>
           <Private exact path="/secret">
+            <Header />
             <SecretPage />
           </Private>
           <Route path="*">
+            <Header />
             <NotFound />
           </Route>
         </Switch>
