@@ -18,13 +18,17 @@ const Title = styled.div`
   font-color:black;
   `;
 
-function VideoCard({thumbnail,title}){
+function VideoCard({thumbnail,title,url}){
     return(
         <VideoWrapper>
             <Title>
                 {title}
             </Title>
-            <img src={thumbnail}></img>
+            <Title>
+            <a href= {url?`https://www.youtube.com/watch?v=${url}`:null} >
+            <img src={thumbnail}></img></a>
+            </Title>
+            
             
         </VideoWrapper>
 
