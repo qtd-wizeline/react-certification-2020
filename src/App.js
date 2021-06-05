@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-//import './App.css';
+import './App.css';
 import styled from "styled-components"
 import Header from './components/header/header.jsx';
 import VideoCard from "./components/videocard/videocard.jsx"
@@ -22,12 +22,12 @@ const VideoList = js.items.map((vid)=>(
 
 function App() {
   return (
-    <Container>
+    <div>
       <div className="App">
         <Header/>
     </div>
         {VideoList}
-    </Container>
+    </div>
     
   );
 }
