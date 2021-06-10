@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render CardItem Component should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="card-item"
+  >
+    <div
+      class="card-title"
+    >
+      <h4>
+        Wizeline
+      </h4>
+    </div>
+    <div
+      class="img__wrap"
+    >
+      <img
+        class="center"
+        src="https://yt3.ggpht.com/ytc/AAUvwnighSReQlmHl_S_vSfvnWBAG5Cw4A0YxtE0tm5OpQ=s240-c-k-c0xffffffff-no-rj-mo"
+      />
+      <p
+        class="img__description"
+      >
+        Wizeline transforms how teams build technology. Its customers accelerate the delivery of innovative products with proven solutions, which combine Wizeline's ...
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
