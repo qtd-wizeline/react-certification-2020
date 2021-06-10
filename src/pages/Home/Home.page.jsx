@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 import mockData from '../../../public/youtube-videos-mock.json';
-import CardItem from '../../components/CardItem'
+import CardItem from '../../components/CardItem';
 import Header from '../../components/Header';
 
 function HomePage() {
