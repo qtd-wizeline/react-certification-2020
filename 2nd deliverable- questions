@@ -1,0 +1,3 @@
+1. We need to setup react-testing-library and jest via npm install
+2. The components worth testing in my app so far is the hover on a cardItem component
+3. I believe you can still apply TDD once you've created your components. Once more factors come in, you may want to change how your components behave (i.e. Data manipulation or UI behavior)
