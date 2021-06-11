@@ -1,0 +1,33 @@
+
+> react-certification-2020@0.1.0 test:coverage /home/milez/projects/wizeline-challenges/react-certification-2021
+> npm test -- --coverage --watchAll=false
+
+
+> react-certification-2020@0.1.0 test /home/milez/projects/wizeline-challenges/react-certification-2021
+> react-scripts test "--coverage" "--watchAll=false"
+
+-----------------------------|----------|----------|----------|----------|-------------------|
+File                         |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-----------------------------|----------|----------|----------|----------|-------------------|
+All files                    |    90.48 |       70 |    84.21 |    90.48 |                   |
+ src                         |        0 |      100 |      100 |        0 |                   |
+  index.jsx                  |        0 |      100 |      100 |        0 |                 7 |
+ src/components/App          |      100 |      100 |      100 |      100 |                   |
+  App.jsx                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Header       |       80 |      100 |       50 |       80 |                   |
+  Header.jsx                 |       80 |      100 |       50 |       80 |                44 |
+ src/components/IconButton   |      100 |      100 |      100 |      100 |                   |
+  IconButton.jsx             |      100 |      100 |      100 |      100 |                   |
+ src/components/Layout       |      100 |      100 |      100 |      100 |                   |
+  Layout.jsx                 |      100 |      100 |      100 |      100 |                   |
+ src/components/SearchInput  |      100 |      100 |      100 |      100 |                   |
+  SearchInput.jsx            |      100 |      100 |      100 |      100 |                   |
+ src/components/ToggleSwitch |       80 |       50 |    66.67 |       80 |                   |
+  ToggleSwitch.jsx           |       80 |       50 |    66.67 |       80 |             34,35 |
+ src/components/VideoCard    |      100 |      100 |      100 |      100 |                   |
+  VideoCard.jsx              |      100 |      100 |      100 |      100 |                   |
+ src/mocks                   |      100 |      100 |      100 |      100 |                   |
+  youtube-videos-mock.js     |      100 |      100 |      100 |      100 |                   |
+ src/pages/Home              |      100 |      100 |      100 |      100 |                   |
+  Home.jsx                   |      100 |      100 |      100 |      100 |                   |
+-----------------------------|----------|----------|----------|----------|-------------------|
