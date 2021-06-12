@@ -15,7 +15,7 @@ const ImgWrap = styled.div`
   margin-bottom: inherit;
   bottom: 0;
 
-  &:hover ${ImageHover} {
+  ${ImageHover}:hover & {
     visibility: visible;
     opacity: 1;
   }

@@ -28,7 +28,7 @@ function Component(item) {
     //   </div>
     // </div>
 
-    <CardItem>
+    <CardItem key={item.etag}>
       <CardTitle text={item.snippet.title} />
       <ImgWrap
         image={item.snippet.thumbnails.medium.url}
