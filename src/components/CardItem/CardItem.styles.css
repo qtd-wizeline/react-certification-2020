@@ -6,7 +6,7 @@
   background-color: black;
 }
 
-div.card-item {
+/* div.card-item {
   height: 330px;
   background-color: white;
   border-radius: 5px;
@@ -14,7 +14,7 @@ div.card-item {
   margin: 5px;
   flex-basis: calc(20% - 22px);
   position: relative;
-}
+} */
 
 .card-item > h4 {
   color: black;

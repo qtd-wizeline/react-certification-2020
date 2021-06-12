@@ -1,11 +1,20 @@
 import React from 'react';
+import styled from 'styled-components'
 
 // import { useFortune } from '../../utils/hooks/useFortune';
 import './CardItem.styles.css';
 
-function Header(item) {
-  const text = 'Demo App! Welcome!';
+const CardItem = styled.div`
+  height: 330px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 5px;
+  flex-basis: calc(20% - 22px);
+  position: relative;
+`;
 
+function CardItem(item) {
   return (
     <div className="card-item" key={item.etag}>
       <div className="card-title">
@@ -19,4 +28,4 @@ function Header(item) {
   );
 }
 
-export default Header;
+export default CardItem;
