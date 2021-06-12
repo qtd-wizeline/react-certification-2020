@@ -36,21 +36,20 @@ const SearchField = styled.input`
 `;
 
 const Header = styled.header`
+  text-align: center;
   color: white;
   margin: 0;
-  height: 7em;
+  height: 5em;
   background-color: black;
 `;
 
 function Component() {
   return (
-    <header className="header">
-      <div>
-        <ButtonLeft>Navigation</ButtonLeft>
-        <SearchField disabled />
-        <ButtonRight>Login</ButtonRight>
-      </div>
-    </header>
+    <Header>
+      <ButtonLeft>Navigation</ButtonLeft>
+      <SearchField disabled />
+      <ButtonRight>Login</ButtonRight>
+    </Header>
   );
 }
 
