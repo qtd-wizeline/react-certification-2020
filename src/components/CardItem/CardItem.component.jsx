@@ -5,7 +5,6 @@ import styled from 'styled-components';
 // import './CardItem.styles.css';
 import ImgWrap from '../ImgWrap';
 import CardTitle from '../CardTitle';
-import ImageHover from '../ImageHover';
 
 const CardItem = styled.div`
   height: 330px;
