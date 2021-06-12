@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 // import { useFortune } from '../../utils/hooks/useFortune';
-import './CardItem.styles.css';
+// import './CardItem.styles.css';
+import ImgWrap from '../ImgWrap';
+import CardTitle from '../CardTitle';
 
 const CardItem = styled.div`
   height: 330px;
@@ -14,18 +16,26 @@ const CardItem = styled.div`
   position: relative;
 `;
 
-function CardItem(item) {
+function Component(item) {
   return (
-    <div className="card-item" key={item.etag}>
-      <div className="card-title">
-        <h4>{item.snippet.title}</h4>
-      </div>
-      <div className="img__wrap">
-        <img className="center" src={item.snippet.thumbnails.medium.url} />
-        <p className="img__description">{item.snippet.description}</p>
-      </div>
-    </div>
+    // <div className="card-item" key={item.etag}>
+    //   <div className="card-title">
+    //     <h4>{item.snippet.title}</h4>
+    //   </div>
+    //   <div className="img__wrap">
+    //     <img className="center" src={item.snippet.thumbnails.medium.url} />
+    //     <p className="img__description">{item.snippet.description}</p>
+    //   </div>
+    // </div>
+
+    <CardItem>
+      <CardTitle text={item.snippet.title} />
+      <ImgWrap
+        image={item.snippet.thumbnails.medium.url}
+        hover_text={item.snippet.description}
+      />
+    </CardItem>
   );
 }
 
-export default CardItem;
+export default Component;

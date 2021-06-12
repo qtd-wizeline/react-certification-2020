@@ -1,23 +1,12 @@
 import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
 
-import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
-import mockData from '../../../public/youtube-videos-mock.json';
-import CardItem from '../../components/CardItem'
-import Header from '../../components/Header';
+import mockData from '../../mock/youtube-videos-mock.json';
+import CardItem from '../../components/CardItem';
 
 function HomePage() {
-  const history = useHistory();
   const sectionRef = useRef(null);
-  // const { authenticated, logout } = useAuth();
-  const trimmedArray = mockData.items;//.slice(0, 5);
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+  const trimmedArray = mockData.items;
 
   return (
     <section className="homepage" ref={sectionRef}>
@@ -40,7 +29,6 @@ function HomePage() {
         <div className="cards">{trimmedArray.map((d) => CardItem(d))}</div>
       </div>
     </section>
-
   );
 }
 
