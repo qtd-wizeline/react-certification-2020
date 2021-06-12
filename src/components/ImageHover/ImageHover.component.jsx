@@ -20,8 +20,8 @@ const ImageHover = styled.p`
   margin-bottom: 0;
 `;
 
-function Component(item) {
-  return <ImageHover>{item.snippet.description}</ImageHover>;
+function Component(props) {
+  return <ImageHover>{props.hover_text}</ImageHover>;
 }
 
 export default Component;

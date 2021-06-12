@@ -25,7 +25,7 @@ function Component(props) {
   return (
     <ImgWrap>
       <CenteredImage image={props.image} />
-      <ImageHover>{props.hover_text}</ImageHover>
+      <ImageHover hover_text={props.hover_text} />
     </ImgWrap>
   );
 }
