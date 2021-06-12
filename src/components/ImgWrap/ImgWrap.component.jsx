@@ -3,23 +3,6 @@ import styled from 'styled-components';
 
 import CenteredImage from '../CenteredImage';
 
-const ImgWrap = styled.div`
-  position: relative;
-  height: auto;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden;
-  display: inline-block;
-  margin-bottom: inherit;
-  bottom: 0;
-
-  ${ImageHover}:hover & {
-    visibility: visible;
-    opacity: 1;
-  }
-`;
-
 const ImageHover = styled.p`
   position: absolute;
   top: 0;
@@ -37,6 +20,23 @@ const ImageHover = styled.p`
   transition: opacity 0.2s, visibility 0.2s;
   margin-top: 0;
   margin-bottom: 0;
+`;
+
+const ImgWrap = styled.div`
+  position: relative;
+  height: auto;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  display: inline-block;
+  margin-bottom: inherit;
+  bottom: 0;
+
+  ${ImageHover}:hover & {
+    visibility: visible;
+    opacity: 1;
+  }
 `;
 
 function Component(props) {
