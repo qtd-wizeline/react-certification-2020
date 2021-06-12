@@ -42,16 +42,15 @@ const Header = styled.header`
   background-color: black;
 `;
 
-
 function Component() {
   return (
-    <Header>
+    <header className="header">
       <div>
         <ButtonLeft>Navigation</ButtonLeft>
         <SearchField disabled />
         <ButtonRight>Login</ButtonRight>
       </div>
-    </Header>
+    </header>
   );
 }
 
