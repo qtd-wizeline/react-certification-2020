@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CenteredImage from '../CenteredImage';
-import ImageHover from '../ImageHover';
 
 const ImgWrap = styled.div`
   position: relative;
