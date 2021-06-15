@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CenteredImage = styled.img`
+const CenteredImageWrapper = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -9,8 +9,8 @@ const CenteredImage = styled.img`
   height: fit-content;
 `;
 
-function Component(props) {
-  return <CenteredImage src={props.image} />;
+function CenteredImage(props) {
+  return <CenteredImageWrapper src={props.image} />;
 }
 
-export default Component;
+export default CenteredImage;

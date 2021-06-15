@@ -7,16 +7,18 @@ import NotFound from '../../pages/NotFound';
 
 function Body() {
   return (
-    <Layout>
-      <Switch>
-        <Route exact path="/">
+    <Switch>
+      <Route exact path="/">
+        <Layout>
           <HomePage />
-        </Route>
-        <Route path="*">
+        </Layout>
+      </Route>
+      <Route exact path="*">
+        <Layout>
           <NotFound />
-        </Route>
-      </Switch>
-    </Layout>
+        </Layout>
+      </Route>
+    </Switch>
   );
 }
 

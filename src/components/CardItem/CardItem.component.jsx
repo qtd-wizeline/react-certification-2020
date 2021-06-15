@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import { useFortune } from '../../utils/hooks/useFortune';
-// import './CardItem.styles.css';
 import ImgWrap from '../ImgWrap';
 import CardTitle from '../CardTitle';
 
-const CardItem = styled.div`
+const CardItemDiv = styled.div`
   height: 330px;
   background-color: white;
   border-radius: 5px;
@@ -16,7 +14,7 @@ const CardItem = styled.div`
   position: relative;
 `;
 
-function Component(item) {
+function CardItem(item) {
   return (
     // <div className="card-item" key={item.etag}>
     //   <div className="card-title">
@@ -28,14 +26,14 @@ function Component(item) {
     //   </div>
     // </div>
 
-    <CardItem key={item.etag}>
+    <CardItemDiv key={item.etag}>
       <CardTitle text={item.snippet.title} />
       <ImgWrap
         image={item.snippet.thumbnails.medium.url}
         hover_text={item.snippet.description}
       />
-    </CardItem>
+    </CardItemDiv>
   );
 }
 
-export default Component;
+export default CardItem;

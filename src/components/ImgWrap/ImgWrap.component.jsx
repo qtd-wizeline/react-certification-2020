@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import CenteredImage from '../CenteredImage';
 
-const ImageHover = styled.p`
+const ImageHoverText = styled.p`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -22,7 +22,7 @@ const ImageHover = styled.p`
   margin-bottom: 0;
 `;
 
-const ImgWrap = styled.div`
+const ImgWrapper = styled.div`
   position: relative;
   height: auto;
   width: auto;
@@ -33,19 +33,19 @@ const ImgWrap = styled.div`
   margin-bottom: inherit;
   bottom: 0;
 
-  &:hover ${ImageHover} {
+  &:hover ${ImageHoverText} {
     visibility: visible;
     opacity: 1;
   }
 `;
 
-function Component(props) {
+function ImgWrap(props) {
   return (
-    <ImgWrap>
+    <ImgWrapper>
       <CenteredImage image={props.image} />
-      <ImageHover>{props.hover_text}</ImageHover>
-    </ImgWrap>
+      <ImageHoverText>{props.hover_text}</ImageHoverText>
+    </ImgWrapper>
   );
 }
 
-export default Component;
+export default ImgWrap;
