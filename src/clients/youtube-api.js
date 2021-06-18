@@ -7,7 +7,7 @@ function youtubeApiSearch(searchString) {
   queryParam.append('maxResults', 25);
   queryParam.append('q', searchString);
   queryParam.append('type', 'video');
-  queryParam.append('key', 'AIzaSyDT_EldMwfXGH6MLXH9qYumq1Ip1o7KTcE');
+  queryParam.append('key', process.env.REACT_APP_YOUTUBE_API_KEY);
 
   const url = new URL(`${baseAddress}/search?${queryParam.toString()}`);
   return fetch(url.href);
@@ -20,7 +20,7 @@ function youtubeApiSearchRelated(videoId) {
   queryParam.append('maxResults', 25);
   queryParam.append('relatedToVideoId', videoId);
   queryParam.append('type', 'video');
-  queryParam.append('key', 'AIzaSyDT_EldMwfXGH6MLXH9qYumq1Ip1o7KTcE');
+  queryParam.append('key', process.env.REACT_APP_YOUTUBE_API_KEY);
 
   const url = new URL(`${baseAddress}/search?${queryParam.toString()}`);
   return fetch(url.href);
@@ -31,7 +31,7 @@ function youtubeApiGetSpecificVideo(videoId) {
   const queryParam = new URLSearchParams();
   queryParam.append('part', 'snippet');
   queryParam.append('id', videoId);
-  queryParam.append('key', 'AIzaSyDT_EldMwfXGH6MLXH9qYumq1Ip1o7KTcE');
+  queryParam.append('key', process.env.REACT_APP_YOUTUBE_API_KEY);
 
   const url = new URL(`${baseAddress}/videos?${queryParam.toString()}`);
   return fetch(url.href);
