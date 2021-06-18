@@ -20,17 +20,22 @@ const SearchInputForm = styled.form`
   }
 `;
 
-function SearchInput() {
+function SearchInput(props) {
+  const onSearchInputSubmit = (e) => {
+    e.preventDefault();
+    props.submitCallback();
+  };
   return (
-    <SearchInputForm
-      onSubmit={(e) => {
-        e.preventDefault();
-        console.log('SUBMIT');
-      }}
-    >
+    <SearchInputForm onSubmit={onSearchInputSubmit}>
       <input type="text" placeholder="Search..." />
       <div>
-        <IconButton type="submit" svgIcon={faSearch} color="#365a71" fontSize="0.75rem" />
+        <IconButton
+          data-testid="searchinput-submitbutton"
+          type="submit"
+          svgIcon={faSearch}
+          color="#365a71"
+          fontSize="0.75rem"
+        />
       </div>
     </SearchInputForm>
   );

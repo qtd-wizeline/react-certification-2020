@@ -37,7 +37,13 @@ function Header() {
   return (
     <Wrapper>
       <HeaderContainer>
-        <IconButton type="submit" svgIcon={faBars} />
+        <IconButton
+          type="submit"
+          svgIcon={faBars}
+          submitCallback={() => {
+            console.log('SearchInput Submit!');
+          }}
+        />
         <SearchInput />
       </HeaderContainer>
       <HeaderContainer>

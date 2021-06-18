@@ -15,6 +15,7 @@ function Layout(props) {
   return (
     <StyledLayout>
       <Header />
+      <h1>A text for testing purpose!</h1>
       <PageBody> {props.children}</PageBody>
     </StyledLayout>
   );
