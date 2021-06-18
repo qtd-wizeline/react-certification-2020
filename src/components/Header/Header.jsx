@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Menu from './Menu';
+import SearchBar from './SearchBar';
 
 const Button = styled.button`
   /* This renders the buttons above... Edit me! */
@@ -14,7 +15,7 @@ const Button = styled.button`
   border: 2px solid white;
 `;
 
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <NavHead>
@@ -24,7 +25,7 @@ const Header = () => {
           </HeaderItem>
 
           <HeaderItem>
-            <Input type="text" placeholder="Search" />
+            <SearchBar onSetKeyword={props.updateInput} />
           </HeaderItem>
         </Section>
         <Section>
@@ -63,26 +64,6 @@ const Section = styled.div`
 const HeaderItem = styled.div`
   padding: 5px 15px;
   font-size: 12px;
-`;
-
-const Input = styled.input`
-  font-size: 16px;
-  border: solid 1px #dbdbdb;
-  border-radius: 3px;
-  color: #262626;
-  padding: 7px 33px;
-  border-radius: 3px;
-  color: #999;
-  cursor: text;
-  font-size: 14px;
-  font-weight: 300;
-  text-align: center;
-  background: #fafafa;
-
-  &:active,
-  &:focus {
-    text-align: left;
-  }
 `;
 
 export default Header;

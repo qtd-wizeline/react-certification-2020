@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CardItem from './CardItem';
 
-import data from './youtube-videos-mock.json';
+const Content = (props) => {
+  const [videoList, setVideoList] = useState(props.videoList);
 
-const mockData = data.items.map((item) => {
-  return (
-    <CardItem
-      key={item.etag}
-      title={item.snippet.title}
-      description={item.snippet.description}
-      thumbnails={item.snippet.thumbnails.high.url}
-    />
-  );
-});
+  const loadVideos = (list) => {
+    console.log('Esto es la lista', list);
+    console.log('Esto es el etag', list.etag);
+    if (list) {
+      console.log('entra');
+      setVideoList(
+        list.items.map((item) => {
+          return (
+            <CardItem
+              key={item.etag}
+              title={item.snippet.title}
+              description={item.snippet.description}
+              thumbnails={item.snippet.thumbnails.high.url}
+            />
+          );
+        })
+      );
+    }
+  };
 
-const Content = () => {
+  useEffect(() => {
+    loadVideos(props.videoList);
+  }, [props.videoList]);
+
   return (
     <>
-      <Cards className="cards">{mockData}</Cards>
+      <Cards className="cards">{videoList}</Cards>
     </>
   );
 };
