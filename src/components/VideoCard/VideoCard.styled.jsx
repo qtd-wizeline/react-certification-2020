@@ -1,7 +1,12 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import breakpoints from '../../configs/breakpoints';
 
-export const VideoCardBase = styled.div`
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+export const VideoCardBase = styled(StyledLink)`
   border-radius: 5px;
   margin: 8px;
   background-color: ${(props) => props.theme.fg};

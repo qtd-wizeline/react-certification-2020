@@ -9,7 +9,7 @@ const initState = {
 
 const ThemeContext = createContext(initState);
 
-function StyledThemeProviderWrapper(props) {
+function StyledThemeProvider(props) {
   const [theme, setTheme] = useState(themes.dark);
   const toggle = () => {
     if (theme.name === 'dark') {
@@ -25,4 +25,4 @@ function StyledThemeProviderWrapper(props) {
   );
 }
 
-export { StyledThemeProviderWrapper, ThemeContext };
+export { StyledThemeProvider, ThemeContext };
