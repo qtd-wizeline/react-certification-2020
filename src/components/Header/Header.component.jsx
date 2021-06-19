@@ -35,7 +35,7 @@ const SearchField = styled.input`
   min-width: 400px;
 `;
 
-const Header = styled.header`
+const HeaderWrap = styled.header`
   text-align: center;
   color: white;
   margin: 0;
@@ -43,14 +43,20 @@ const Header = styled.header`
   background-color: black;
 `;
 
-function Component() {
+function submitSearch(searchTerm) {
+  console.log(searchTerm);
+}
+
+function Header() {
   return (
-    <Header>
+    <HeaderWrap>
       <ButtonLeft>Navigation</ButtonLeft>
-      <SearchField disabled />
+      <form onSubmit={submitSearch}>
+        <SearchField name="searchTerm" />
+      </form>
       <ButtonRight>Login</ButtonRight>
-    </Header>
+    </HeaderWrap>
   );
 }
 
-export default Component;
+export default Header;
