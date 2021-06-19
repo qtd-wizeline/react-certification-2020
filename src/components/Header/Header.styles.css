@@ -1,0 +1,63 @@
+header {
+  /* text-align: center; */
+  color: white;
+  margin: 0;
+  height: 7em;
+  background-color: black;
+}
+
+.button-left {
+  left: 0%;
+  float: left;
+  /* Adapt the colors based on primary prop */
+  background: #ede9e8;
+  color: gray;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+.button-right {
+  right: 100%;
+  float: right;
+  /* Adapt the colors based on primary prop */
+  background: white;
+  color: black;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+input {
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  min-width: 400px;
+}
+
+.styled-button-primary {
+  /* Adapt the colors based on primary prop */
+  background: white;
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+.styled-button-normal {
+  /* Adapt the colors based on primary prop */
+  background: #ede9e8;
+  color: #ede9e8;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid black;
+  border-radius: 3px;
+}
