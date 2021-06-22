@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from '../Header';
 import Body from '../Body';
 import { random } from '../../utils/fns';
-import { useInput } from '../../hooks/input-hook';
 
 function App() {
   useLayoutEffect(() => {

@@ -1,4 +1,5 @@
 const AUTH_STORAGE_KEY = 'wa_cert_authenticated';
-const API_KEY = 'AIzaSyDCv2nlGl7NnX3F-ZHbq6u8WK6mazlsxPY';
+const API_KEY = 'AIzaSyDfnOqgnvlMntdIC8HJDmJTPeoQKuXJDls';
 
-export { AUTH_STORAGE_KEY, API_KEY };
+export { API_KEY };
+export { AUTH_STORAGE_KEY };

@@ -44,12 +44,13 @@ const HeaderWrap = styled.header`
   background-color: black;
 `;
 
-function Header() {
+function Header(props) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const searchContext = useContext(SearchContext);
 
-  const handleInput = () => {
+  const handleInput = (event) => {
+    event.preventDefault();
     searchContext.searchHandler(searchQuery);
   };
 
@@ -57,11 +58,13 @@ function Header() {
     <HeaderWrap>
       <ButtonLeft>Navigation</ButtonLeft>
       <form onSubmit={handleInput}>
-        <SearchField type="text" onChange={(e) => setSearchQuery(e.target.value)} />
+        <SearchField  type="text" onChange={(e) => setSearchQuery(e.target.value)} />
       </form>
       <ButtonRight>Login</ButtonRight>
     </HeaderWrap>
   );
 }
+
+export { SearchField };
 
 export default Header;
