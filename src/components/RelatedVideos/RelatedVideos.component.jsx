@@ -2,14 +2,20 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import RelatedVideoCard from '../RelatedVideoCard';
-// import mockRelatedVideos from '../../mock/youtube-mock-related-videos.json';
+import mockRelatedVideos from '../../mock/youtube-mock-related-videos.json';
 import { API_KEY } from '../../utils/constants';
 
 const RelatedVideosWrapper = styled.div`
-  overflow: scroll;
-  height: 20em;
+  word-wrap: break-word;
+  height: fit-content;
   width: 20em;
   float: right;
+  margin: 0px;
+`;
+
+const EmptyDiv = styled.div`
+  width: 360px;
+  height: 112px;
 `;
 
 function RelatedVideos(props) {
@@ -45,7 +51,12 @@ function RelatedVideos(props) {
 
   return (
     <RelatedVideosWrapper>
-      {results.items.map((d) => RelatedVideoCard(d))}
+      {results.items.map(function (d) {
+        if (d.snippet) {
+          return RelatedVideoCard(d);
+        }
+      })}
+      <EmptyDiv />
     </RelatedVideosWrapper>
   );
 }

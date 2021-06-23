@@ -34,6 +34,7 @@ const Cards = styled.div`
   margin-right: auto;
   padding: 20px;
   overflow: auto;
+  align-items: center;
 `;
 
 function HomePage() {
@@ -47,7 +48,7 @@ function HomePage() {
   useEffect(() => {
     if (searchContext.query) {
       fetch(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${encodeURI(searchContext.query)}&type=video&videoType=any&key=${APIKey}`
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${encodeURI(searchContext.query)}&type=video&videoType=any&key=${APIKey}`
       )
         .then((res) => res.json())
         .then((result) => {

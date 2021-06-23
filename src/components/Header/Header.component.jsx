@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from "react-router-dom"; 
 import styled from 'styled-components';
 import { SearchContext } from '../../contexts/SearchContextProvider';
 
@@ -49,9 +50,11 @@ function Header(props) {
 
   const searchContext = useContext(SearchContext);
 
+  const history = useHistory();
   const handleInput = (event) => {
     event.preventDefault();
     searchContext.searchHandler(searchQuery);
+    history.push('/');
   };
 
   return (

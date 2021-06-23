@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const LayoutWrapper = styled.main`
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   display: flex;
   flex-direction: column;

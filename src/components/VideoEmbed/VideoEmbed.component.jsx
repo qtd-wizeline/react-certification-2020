@@ -3,8 +3,8 @@ import React from 'react';
 function VideoEmbed(props) {
   return (
     <iframe
-      width="560"
-      height="315"
+      width="1280"
+      height="720"
       src={props.url}
       title="YouTube video player"
       frameBorder="0"

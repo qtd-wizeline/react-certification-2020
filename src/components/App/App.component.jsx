@@ -27,7 +27,6 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSubmit = (data) => {
-    debugger;
     setSearchTerm(data);
   };
 
