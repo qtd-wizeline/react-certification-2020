@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CardItem from './CardItem';
 
+const API_KEY = 'AIzaSyAQq4ddc33VJkJjV21wm4u-qvgGwEkdHmo';
+
 const Content = (props) => {
-  const [videoList, setVideoList] = useState(props.videoList);
+  const [videoList, setVideoList] = useState();
 
   const loadVideos = (list) => {
     console.log('Esto es la lista', list);
@@ -25,9 +27,23 @@ const Content = (props) => {
     }
   };
 
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${props.input}%202&type=video&videoType=any&key=${API_KEY}`
+      );
+      const youtubeSearch = await response.json();
+      // setVideoList(youtubeSearch);
+      console.log(youtubeSearch);
+      loadVideos(youtubeSearch);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [props.input]);
+
   useEffect(() => {
-    loadVideos(props.videoList);
-  }, [props.videoList]);
+    fetchData();
+  }, [fetchData, props.input]);
 
   return (
     <>
