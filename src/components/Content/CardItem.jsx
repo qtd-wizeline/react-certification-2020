@@ -4,14 +4,14 @@ import styled from 'styled-components';
 const CardItem = (props) => {
   return (
     <>
-      <Card>
-        <a href="https://www.google.com/">
-          <Image src={props.thumbnails} alt="error" />
-          <CardContent>
-            <h2>{props.title}</h2>
-            <p>{props.description}</p>
-          </CardContent>
-        </a>
+      <Card onClick={() => props.onSelectVideo(props.id)}>
+        {/* <a href="https://www.google.com/"> */}
+        <Image src={props.thumbnails} alt="error" />
+        <CardContent>
+          <h2>{props.title}</h2>
+          <p>{props.description}</p>
+        </CardContent>
+        {/* </a> */}
       </Card>
     </>
   );

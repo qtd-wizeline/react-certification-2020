@@ -7,25 +7,27 @@ const API_KEY = 'AIzaSyAQq4ddc33VJkJjV21wm4u-qvgGwEkdHmo';
 const Content = (props) => {
   const [videoList, setVideoList] = useState();
 
-  const loadVideos = (list) => {
-    console.log('Esto es la lista', list);
-    console.log('Esto es el etag', list.etag);
-    if (list) {
-      console.log('entra');
-      setVideoList(
-        list.items.map((item) => {
-          return (
-            <CardItem
-              key={item.etag}
-              title={item.snippet.title}
-              description={item.snippet.description}
-              thumbnails={item.snippet.thumbnails.high.url}
-            />
-          );
-        })
-      );
-    }
-  };
+  // const loadVideos = (list) => {
+  //   console.log('Esto es la lista', list);
+  //   console.log('Esto es el etag', list.etag);
+  //   if (list) {
+  //     console.log('entra');
+  //     setVideoList(
+  //       list.items.map((item) => {
+  //         return (
+  //           <CardItem
+  //             key={item.etag}
+  //             id={item.id}
+  //             title={item.snippet.title}
+  //             description={item.snippet.description}
+  //             thumbnails={item.snippet.thumbnails.high.url}
+  //             onSelectedVideo={props.onSelectedVideo}
+  //           />
+  //         );
+  //       })
+  //     );
+  //   }
+  // };
 
   const fetchData = useCallback(async () => {
     try {
@@ -35,11 +37,28 @@ const Content = (props) => {
       const youtubeSearch = await response.json();
       // setVideoList(youtubeSearch);
       console.log(youtubeSearch);
-      loadVideos(youtubeSearch);
+      // loadVideos(youtubeSearch);
+      if (youtubeSearch) {
+        console.log('entra');
+        setVideoList(
+          youtubeSearch.items.map((item) => {
+            return (
+              <CardItem
+                key={item.etag}
+                id={item.id.videoId}
+                title={item.snippet.title}
+                description={item.snippet.description}
+                thumbnails={item.snippet.thumbnails.high.url}
+                onSelectVideo={props.onSelectVideo}
+              />
+            );
+          })
+        );
+      }
     } catch (error) {
       console.log(error);
     }
-  }, [props.input]);
+  }, [props.input, props.onSelectVideo]);
 
   useEffect(() => {
     fetchData();
