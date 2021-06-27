@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardItem = (props) => {
+const RelatedVideoItem = (props) => {
   return (
     <>
       <Card
@@ -13,13 +13,11 @@ const CardItem = (props) => {
           })
         }
       >
-        {/* <a href="https://www.google.com/"> */}
         <Image src={props.thumbnails} alt="error" />
         <CardContent>
           <h2>{props.title}</h2>
           <p>{props.description}</p>
         </CardContent>
-        {/* </a> */}
       </Card>
     </>
   );
@@ -35,14 +33,13 @@ const Card = styled.div`
   border-radius: 20px;
   flex: 0 1 23%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 
   & a {
     color: black;
     text-decoration: none;
   }
 
-  & hover {
+  & a:hover {
     box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
   }
 `;
@@ -61,4 +58,4 @@ const CardContent = styled.div`
   }
 `;
 
-export default CardItem;
+export default RelatedVideoItem;

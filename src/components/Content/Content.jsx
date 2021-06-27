@@ -1,47 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import CardItem from './CardItem';
-
-const API_KEY = 'AIzaSyAQq4ddc33VJkJjV21wm4u-qvgGwEkdHmo';
+import useFetch from '../../hooks/useFetch';
 
 const Content = (props) => {
-  const [videoList, setVideoList] = useState();
+  const uri = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${props.input}%202&type=video&videoType=any`;
 
-  // const loadVideos = (list) => {
-  //   console.log('Esto es la lista', list);
-  //   console.log('Esto es el etag', list.etag);
-  //   if (list) {
-  //     console.log('entra');
-  //     setVideoList(
-  //       list.items.map((item) => {
-  //         return (
-  //           <CardItem
-  //             key={item.etag}
-  //             id={item.id}
-  //             title={item.snippet.title}
-  //             description={item.snippet.description}
-  //             thumbnails={item.snippet.thumbnails.high.url}
-  //             onSelectedVideo={props.onSelectedVideo}
-  //           />
-  //         );
-  //       })
-  //     );
-  //   }
-  // };
+  const { videoList } = useFetch(uri);
 
-  const fetchData = useCallback(async () => {
-    try {
-      const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${props.input}%202&type=video&videoType=any&key=${API_KEY}`
-      );
-      const youtubeSearch = await response.json();
-      // setVideoList(youtubeSearch);
-      console.log(youtubeSearch);
-      // loadVideos(youtubeSearch);
-      if (youtubeSearch) {
-        console.log('entra');
-        setVideoList(
-          youtubeSearch.items.map((item) => {
+  return (
+    <>
+      <Cards className="cards">
+        {videoList ? (
+          videoList.map((item) => {
             return (
               <CardItem
                 key={item.etag}
@@ -53,20 +24,10 @@ const Content = (props) => {
               />
             );
           })
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }, [props.input, props.onSelectVideo]);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData, props.input]);
-
-  return (
-    <>
-      <Cards className="cards">{videoList}</Cards>
+        ) : (
+          <></>
+        )}
+      </Cards>
     </>
   );
 };

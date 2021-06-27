@@ -14,9 +14,9 @@ function HomePage() {
     setInput(search);
   };
 
-  const onSelectVideo = (id) => {
-    setVideoSeleted(id);
-    console.log('La id es: ', id);
+  const onSelectVideo = (video) => {
+    setVideoSeleted(video);
+    console.log('El video seleccionado es: ', video);
   };
 
   return (
@@ -25,7 +25,7 @@ function HomePage() {
       {videoSelected == null ? (
         <Content onSelectVideo={onSelectVideo} input={input} />
       ) : (
-        <VideoPlayer id={videoSelected} />
+        <VideoPlayer onSelectVideo={onSelectVideo} video={videoSelected} />
       )}
     </>
   );
