@@ -18,8 +18,8 @@ describe('Testing the Header Section', () => {
 
   it('test the Search Bar', () => {
     render(<Header />);
-    expect(screen.getByPlaceholderText('Search')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Search').tagName).toBe('INPUT');
+    expect(screen.getByPlaceholderText('search video')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('search video').tagName).toBe('INPUT');
   });
 
   it('test the Header', () => {
