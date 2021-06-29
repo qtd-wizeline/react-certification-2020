@@ -12,6 +12,11 @@ describe('Render DrawerToggle', () => {
     snippet: {
       title: `TEST VIDEO`,
       description: `COUNTING LEADER AND TONE`,
+      thumbnails: {
+        default: {
+          url: 'https://i.ytimg.com/vi/nmXMgqjQzls/default.jpg',
+        }
+      }
     },
   };
 

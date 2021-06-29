@@ -1,19 +1,27 @@
-import React from 'react'
-import {render, cleanup} from '@testing-library/react';
-import CardItem from './index.js';
-import mockData from './test_data/mock.json';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import CardItem from './index';
+// import mockData from './test_data/mock.json';
 
-afterEach(cleanup)
+describe('render CardItem Component', () => {
+  const testItem = {
+    id: {
+      videoId: 'C0DPdy98e4c',
+    },
+    snippet: {
+      title: `TEST VIDEO`,
+      description: `COUNTING LEADER AND TONE`,
+      thumbnails: {
+        medium: {
+          url: 'https://i.ytimg.com/vi/C0DPdy98e4c/mqdefault.jpg',
+        }
+      }
+    },
+  };
 
-describe ( "render CardItem Component", () => {
-   it('should take a snapshot', () => {
-      const { asFragment } = render(CardItem(mockData.items[0]));
-
-      expect(asFragment(CardItem(mockData.items[0]))).toMatchSnapshot()
-   });
-
-   it ('should show description on hover', () => {
-      
-   });
-
+  test('CardItem element exists', () => {
+    render(<Router>{CardItem(testItem)}</Router>);
+    expect(screen.getByTestId('card-item')).toBeTruthy();
+  });
 });

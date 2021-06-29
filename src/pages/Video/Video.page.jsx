@@ -6,7 +6,7 @@ import VideoEmbed from '../../components/VideoEmbed';
 import RelatedVideos from '../../components/RelatedVideos';
 
 const VideoSection = styled.section`
-  margin-top: 19rem;
+  margin-top: 22rem;
   width: 90%;
   height: fit-content;
 `;

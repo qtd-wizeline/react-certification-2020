@@ -11,6 +11,10 @@ const HomePageWrapper = styled.section`
   text-align: center;
   overflow: auto;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   & > h1 {
     font-size: 3rem;
     letter-spacing: -2px;

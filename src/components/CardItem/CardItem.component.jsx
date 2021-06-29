@@ -16,7 +16,7 @@ const CardItemDiv = styled.div`
 
 function CardItem(item) {
   return (
-    <CardItemDiv key={item.etag}>
+    <CardItemDiv key={item.etag} data-testid="card-item">
       <CardTitle item={item} />
       <ImgWrap
         image={item.snippet.thumbnails.medium.url}

@@ -2,17 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const VideoCardTitle = styled.div``;
+const VideoCardTitle = styled.div`
+  padding-left: 7.5em;
+`;
 
 const CardWrapper = styled.div`
   height: 120px;
-  width: 360px;
+  width: 370px;
   border-style: solid;
 `;
 
 const VideoThumbnailWrapper = styled.div`
   height: 90px;
   width: 120px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
   float: left;
   margin-right: 3px;
 `;
@@ -29,7 +34,7 @@ function RelatedVideoCard(item) {
   const videoDescription = item.snippet.description;
 
   return (
-    <CardWrapper>
+    <CardWrapper key={item.etag}>
       <Link
         data-testid="related-video-card"
         to={{
@@ -45,8 +50,8 @@ function RelatedVideoCard(item) {
         <VideoThumbnailWrapper>
           <VideoThumbnail src={item.snippet.thumbnails.default.url} />
         </VideoThumbnailWrapper>
-        <VideoCardTitle key={item.etag}>
-          <a>{videoTitle}</a>
+        <VideoCardTitle>
+          <h5>{videoTitle}</h5>
         </VideoCardTitle>
       </Link>
     </CardWrapper>

@@ -16,6 +16,9 @@ const ButtonLeft = styled.button`
   border-radius: 3px;
 `;
 
+const FormWrapper = styled.div`
+`;
+
 const ButtonRight = styled.button`
   right: 100%;
   float: right;
@@ -45,7 +48,7 @@ const HeaderWrap = styled.header`
   background-color: black;
 `;
 
-function Header(props) {
+function Header() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const searchContext = useContext(SearchContext);
@@ -60,10 +63,12 @@ function Header(props) {
   return (
     <HeaderWrap>
       <ButtonLeft>Navigation</ButtonLeft>
-      <form onSubmit={handleInput}>
-        <SearchField  type="text" onChange={(e) => setSearchQuery(e.target.value)} />
-      </form>
       <ButtonRight>Login</ButtonRight>
+      <FormWrapper>
+        <form onSubmit={handleInput}>
+          <SearchField type="text" onChange={(e) => setSearchQuery(e.target.value)} />
+        </form>
+      </FormWrapper>
     </HeaderWrap>
   );
 }
