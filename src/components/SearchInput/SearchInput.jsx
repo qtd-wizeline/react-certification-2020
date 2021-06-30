@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
