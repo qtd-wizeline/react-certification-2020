@@ -1,4 +1,4 @@
-const baseAddress = 'https://youtube.googleapis.com/youtube/v3';
+const YOUTUBE_API_BASE_ADDRESS = 'https://youtube.googleapis.com/youtube/v3';
 
 function youtubeApiSearch(searchString) {
   // build query param
@@ -9,7 +9,7 @@ function youtubeApiSearch(searchString) {
   queryParam.append('type', 'video');
   queryParam.append('key', process.env.REACT_APP_YOUTUBE_API_KEY);
 
-  const url = new URL(`${baseAddress}/search?${queryParam.toString()}`);
+  const url = new URL(`${YOUTUBE_API_BASE_ADDRESS}/search?${queryParam.toString()}`);
   return fetch(url.href);
 }
 
@@ -22,7 +22,7 @@ function youtubeApiSearchRelated(videoId) {
   queryParam.append('type', 'video');
   queryParam.append('key', process.env.REACT_APP_YOUTUBE_API_KEY);
 
-  const url = new URL(`${baseAddress}/search?${queryParam.toString()}`);
+  const url = new URL(`${YOUTUBE_API_BASE_ADDRESS}/search?${queryParam.toString()}`);
   return fetch(url.href);
 }
 
@@ -33,7 +33,7 @@ function youtubeApiGetSpecificVideo(videoId) {
   queryParam.append('id', videoId);
   queryParam.append('key', process.env.REACT_APP_YOUTUBE_API_KEY);
 
-  const url = new URL(`${baseAddress}/videos?${queryParam.toString()}`);
+  const url = new URL(`${YOUTUBE_API_BASE_ADDRESS}/videos?${queryParam.toString()}`);
   return fetch(url.href);
 }
 

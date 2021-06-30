@@ -1,45 +1,20 @@
-import React, { createContext, useState } from 'react';
-import { youtubeApiSearch } from '../clients/youtube-api';
+import React, { createContext, useReducer } from 'react';
 import YoutubeVideosMock from '../mocks/youtube-videos-mock';
+import { GlobalReducer } from '../reducers/GlobalReducer';
 
 const initialState = {
-  searchString: '',
-  setSearchString: () => {},
-  searchResult: [],
-  setSearchResult: () => {},
+  searchString: 'wizeline',
+  searchResult: YoutubeVideosMock.items,
 };
 const GlobalContext = createContext(initialState);
 
 function GlobalContextProvider(props) {
-  const [searchString, setSearchString] = useState('wizeline');
-  const [searchResult, setSearchResult] = useState(YoutubeVideosMock.items);
-
-  const getSearchResult = (newSearchString) => {
-    youtubeApiSearch(newSearchString)
-      .then((res) => {
-        if (res.status === 403) {
-          throw new Error('Youtube API limit has exceeded');
-        } else {
-          return res.json();
-        }
-      })
-      .then((json) => {
-        setSearchResult(json.items);
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
-
-  const contextValue = {
-    searchString,
-    setSearchString,
-    searchResult,
-    getSearchResult,
-  };
+  const [globalState, dispatch] = useReducer(GlobalReducer, initialState);
 
   return (
-    <GlobalContext.Provider value={contextValue}>{props.children}</GlobalContext.Provider>
+    <GlobalContext.Provider value={[globalState, dispatch]}>
+      {props.children}
+    </GlobalContext.Provider>
   );
 }
 

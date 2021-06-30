@@ -12,43 +12,37 @@ import {
   VideoTitle,
   Wrapper,
 } from './VideoDetailsView.styled';
+import useRequest from '../../clients/useRequest';
 
 export default function VideoDetailsView(props) {
   const { videoId } = props;
   const [videoTitle, setVideoTitle] = useState('');
   const [videoDescription, setVideoDescription] = useState('');
   const [relatedVideos, setRelatedVideos] = useState([]);
+
+  const getSpecificVideoRequest = useRequest();
+  const searchRelatedRequest = useRequest();
+
   useEffect(() => {
-    youtubeApiGetSpecificVideo(videoId)
-      .then((res) => {
-        if (res.status === 403) {
-          throw new Error('Youtube API limit has exceeded');
-        } else {
-          return res.json();
-        }
-      })
-      .then((json) => {
-        setVideoTitle(json.items[0].snippet.title);
-        setVideoDescription(json.items[0].snippet.description);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
-    youtubeApiSearchRelated(videoId)
-      .then((res) => {
-        if (res.status === 403) {
-          throw new Error('Youtube API limit has exceeded');
-        } else {
-          return res.json();
-        }
-      })
-      .then((json) => {
-        setRelatedVideos(json.items);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+    getSpecificVideoRequest.handleFetchPromise(youtubeApiGetSpecificVideo(videoId));
+    searchRelatedRequest.handleFetchPromise(youtubeApiSearchRelated(videoId));
   }, [videoId]);
+
+  useEffect(() => {
+    const { result } = getSpecificVideoRequest;
+    if (result.response !== null) {
+      setVideoTitle(result.response.items[0].snippet.title);
+      setVideoDescription(result.response.items[0].snippet.description);
+    }
+  }, [getSpecificVideoRequest.result.response]);
+
+  useEffect(() => {
+    const { result } = searchRelatedRequest;
+    if (result.response !== null) {
+      setRelatedVideos(result.response.items);
+    }
+  }, [searchRelatedRequest.result.response]);
+
   return (
     <Wrapper>
       <VideoSection>

@@ -1,21 +1,36 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GlobalContext } from '../../contexts/GlobalContextProvider';
 import { SearchInputContainer, SearchInputIconButton } from './SearchInput.styled';
+import useRequest from '../../clients/useRequest';
+import { youtubeApiSearch } from '../../clients/youtube-api';
 
 function SearchInput() {
-  const { searchString, setSearchString, getSearchResult } = useContext(GlobalContext);
+  const [globalState, dispatch] = useContext(GlobalContext);
+  const { searchString } = globalState;
   const history = useHistory();
+  const { result, handleFetchPromise } = useRequest();
+
+  const onInputChange = (e) => {
+    dispatch({ type: 'setSearchString', payload: e.target.value });
+  };
+
+  const getSearchResult = (newSearchString) => {
+    handleFetchPromise(youtubeApiSearch(newSearchString));
+  };
+
+  useEffect(() => {
+    if (result.response != null) {
+      const { items } = result.response;
+      dispatch({ type: 'setSearchResult', payload: items });
+    }
+  }, [result.response]);
 
   const onSearchInputSubmit = (e) => {
     e.preventDefault();
     getSearchResult(searchString);
     history.push('/');
-  };
-
-  const onInputChange = (e) => {
-    setSearchString(e.target.value);
   };
 
   return (

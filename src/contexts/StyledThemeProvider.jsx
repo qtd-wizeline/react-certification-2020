@@ -1,26 +1,19 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer } from 'react';
 import { ThemeProvider } from 'styled-components';
 import themes from '../configs/themes';
+import { ThemeReducer } from '../reducers/ThemeReducer';
 
 const initState = {
   theme: themes.dark,
-  toggle: () => {},
 };
 
 const ThemeContext = createContext(initState);
 
 function StyledThemeProvider(props) {
-  const [theme, setTheme] = useState(themes.dark);
-  const toggle = () => {
-    if (theme.name === 'dark') {
-      setTheme(themes.light);
-    } else {
-      setTheme(themes.dark);
-    }
-  };
+  const [themeState, dispatch] = useReducer(ThemeReducer, initState);
   return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
-      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+    <ThemeContext.Provider value={[themeState, dispatch]}>
+      <ThemeProvider theme={themeState.theme}>{props.children}</ThemeProvider>
     </ThemeContext.Provider>
   );
 }
