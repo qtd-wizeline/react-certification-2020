@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import App from './components/App/App';
+import { CombinedContextProvider } from './contexts/CombinedContextProvider';
 import './global.css';
-
-import { StyledThemeProviderWrapper } from './utils/StyledThemeContextWrapper';
 
 ReactDOM.render(
   <React.StrictMode>
-    <StyledThemeProviderWrapper>
+    <CombinedContextProvider>
       <App />
-    </StyledThemeProviderWrapper>
+    </CombinedContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

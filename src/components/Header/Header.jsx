@@ -1,6 +1,6 @@
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../utils/StyledThemeContextWrapper';
+import { ThemeContext } from '../../contexts/StyledThemeProvider';
 import IconButton from '../IconButton';
 import SearchInput from '../SearchInput';
 import ToggleSwitch from '../ToggleSwitch';
@@ -16,13 +16,7 @@ function Header() {
   return (
     <StyledHeader>
       <HeaderContainer>
-        <IconButton
-          type="submit"
-          svgIcon={faBars}
-          submitCallback={() => {
-            console.log('SearchInput Submit!');
-          }}
-        />
+        <IconButton type="submit" svgIcon={faBars} />
         <SearchInput />
       </HeaderContainer>
       <HideOnMobileHeaderContainer>

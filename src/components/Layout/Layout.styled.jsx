@@ -6,5 +6,6 @@ export const StyledLayout = styled.main`
 `;
 
 export const PageBody = styled.div`
+  padding-top: 16px;
   display: flex;
 `;
