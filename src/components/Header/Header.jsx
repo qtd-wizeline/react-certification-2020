@@ -15,7 +15,7 @@ const Button = styled.button`
   border: 2px solid white;
 `;
 
-const Header = (props) => {
+const Header = () => {
   return (
     <>
       <NavHead>
@@ -25,7 +25,7 @@ const Header = (props) => {
           </HeaderItem>
 
           <HeaderItem>
-            <SearchBar onSetKeyword={props.updateInput} />
+            <SearchBar />
           </HeaderItem>
         </Section>
         <Section>

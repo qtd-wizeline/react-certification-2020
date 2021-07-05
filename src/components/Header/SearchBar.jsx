@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
-const SearchBar = (props) => {
+const SearchBar = () => {
+  const { setSearchTerm } = useContext(YoutubeVideosContext);
+
   return (
     <Input
       key="random1"
       placeholder="search video"
-      onChange={(e) => props.onSetKeyword(e.target.value)}
+      onChange={(e) => setSearchTerm(e.target.value)}
     />
   );
 };

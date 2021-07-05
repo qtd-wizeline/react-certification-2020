@@ -6,13 +6,7 @@ import VideoPlayer from '../../components/Content/VideoPlayer.component';
 import './Home.styles.css';
 
 function HomePage() {
-  const [input, setInput] = useState('wizeline');
   const [videoSelected, setVideoSeleted] = useState();
-
-  const updateInput = async (search) => {
-    console.log('UpdateInput: ', search);
-    setInput(search);
-  };
 
   const onSelectVideo = (video) => {
     setVideoSeleted(video);
@@ -21,9 +15,9 @@ function HomePage() {
 
   return (
     <>
-      <Header updateInput={updateInput} />
+      <Header />
       {videoSelected == null ? (
-        <Content onSelectVideo={onSelectVideo} input={input} />
+        <Content onSelectVideo={onSelectVideo} />
       ) : (
         <VideoPlayer onSelectVideo={onSelectVideo} video={videoSelected} />
       )}

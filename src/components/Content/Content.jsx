@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import CardItem from './CardItem';
 import useFetch from '../../hooks/useFetch';
+import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
 const Content = (props) => {
-  const uri = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${props.input}%202&type=video&videoType=any`;
+  const { searchTerm } = useContext(YoutubeVideosContext);
+
+  console.log('searchTerm: ', searchTerm);
+  const uri = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchTerm}%202&type=video&videoType=any`;
 
   const { videoList } = useFetch(uri);
 
