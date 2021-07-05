@@ -7,12 +7,15 @@ import HomePage from '../../pages/Home';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('wizeline');
+  const [videoSelected, setVideoSelected] = useState();
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <YoutubeVideosContext.Provider value={{ searchTerm, setSearchTerm }}>
+          <YoutubeVideosContext.Provider
+            value={{ searchTerm, setSearchTerm, videoSelected, setVideoSelected }}
+          >
             <HomePage />
           </YoutubeVideosContext.Provider>
         </Route>

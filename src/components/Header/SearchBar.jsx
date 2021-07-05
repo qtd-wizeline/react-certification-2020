@@ -3,13 +3,16 @@ import styled from 'styled-components';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
 const SearchBar = () => {
-  const { setSearchTerm } = useContext(YoutubeVideosContext);
+  const { setSearchTerm, setVideoSelected } = useContext(YoutubeVideosContext);
 
   return (
     <Input
       key="random1"
       placeholder="search video"
-      onChange={(e) => setSearchTerm(e.target.value)}
+      onChange={(e) => {
+        setSearchTerm(e.target.value);
+        setVideoSelected(null);
+      }}
     />
   );
 };

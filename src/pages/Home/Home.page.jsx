@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Content from '../../components/Content/Content';
 import Header from '../../components/Header/Header';
 import VideoPlayer from '../../components/Content/VideoPlayer.component';
+import YoutubeVideosContext from '../../components/state/YoutubeVideosContext';
 
 import './Home.styles.css';
 
 function HomePage() {
-  const [videoSelected, setVideoSeleted] = useState();
-
-  const onSelectVideo = (video) => {
-    setVideoSeleted(video);
-    console.log('El video seleccionado es: ', video);
-  };
+  const { videoSelected } = useContext(YoutubeVideosContext);
 
   return (
     <>
       <Header />
-      {videoSelected == null ? (
-        <Content onSelectVideo={onSelectVideo} />
-      ) : (
-        <VideoPlayer onSelectVideo={onSelectVideo} video={videoSelected} />
-      )}
+      {videoSelected == null ? <Content /> : <VideoPlayer video={videoSelected} />}
     </>
   );
 }

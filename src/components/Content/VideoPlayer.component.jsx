@@ -36,7 +36,6 @@ const VideoPlayer = (props) => {
                 title={item.snippet.title}
                 description={item.snippet.description}
                 thumbnails={item.snippet.thumbnails.high.url}
-                onSelectVideo={props.onSelectVideo}
               />
             );
           })

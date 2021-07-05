@@ -4,7 +4,7 @@ import CardItem from './CardItem';
 import useFetch from '../../hooks/useFetch';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
-const Content = (props) => {
+const Content = () => {
   const { searchTerm } = useContext(YoutubeVideosContext);
 
   console.log('searchTerm: ', searchTerm);
@@ -24,7 +24,6 @@ const Content = (props) => {
                 title={item.snippet.title}
                 description={item.snippet.description}
                 thumbnails={item.snippet.thumbnails.high.url}
-                onSelectVideo={props.onSelectVideo}
               />
             );
           })
