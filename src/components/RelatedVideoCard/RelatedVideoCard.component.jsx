@@ -39,8 +39,10 @@ const VideoThumbnail = styled.img`
   width: 120px;
 `;
 
-function RelatedVideoCard(item) {
+function RelatedVideoCard(props) {
   const darkModeContext = useContext(AppearanceContext);
+
+  const { item } = props;
 
   const { videoId } = item.id;
 

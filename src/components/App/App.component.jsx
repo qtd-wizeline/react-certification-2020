@@ -24,16 +24,10 @@ function App() {
     };
   }, []);
 
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSubmit = (data) => {
-    setSearchTerm(data);
-  };
-
   return (
     <BrowserRouter>
-      <Header onSubmit={handleSubmit} />
-      <Body searchTerm={searchTerm} />
+      <Header />
+      <Body />
     </BrowserRouter>
   );
 }

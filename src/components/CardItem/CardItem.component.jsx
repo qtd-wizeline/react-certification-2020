@@ -16,8 +16,9 @@ const CardItemDiv = styled.div`
   position: relative;
 `;
 
-function CardItem(item) {
+function CardItem(props) {
   const darkModeContext = useContext(AppearanceContext);
+  const { item } = props;
 
   return (
     <CardItemDiv

@@ -80,7 +80,11 @@ function HomePage() {
   return (
     <HomePageWrapper>
       <Container>
-        <Cards>{results.items.map((d) => CardItem(d))}</Cards>
+        <Cards>
+          {results.items.map((d) => {
+            return <CardItem key={d.etag} item={d} />;
+          })}
+        </Cards>
       </Container>
     </HomePageWrapper>
   );

@@ -1,11 +1,13 @@
-import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useContext, useState, useRef, useEffect } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { SearchContext } from '../../contexts/SearchContextProvider';
 import { AppearanceContext } from '../../contexts/AppearanceContextProvider';
+import { AccountContext } from '../../contexts/AccountContextProvider';
 import ToggleButton from '../ToggleButton';
+import AvatarLogo from '../AvatarLogo';
 
-const ButtonLeft = styled.button`
+const LinkButtonLeft = styled(Link)`
   left: 0%;
   float: left;
   /* Adapt the colors based on primary prop */
@@ -26,7 +28,7 @@ const FormWrapper = styled.div`
   margin-right: auto;
 `;
 
-const ButtonRight = styled(ButtonLeft)`
+const LinkButtonRight = styled(LinkButtonLeft)`
   float: right;
 `;
 
@@ -54,19 +56,69 @@ const HeaderWrap = styled.header`
     props.theme.darkMode ? `rgb(0, 52, 85)` : `rgb(29, 106, 154, 1)`};
 `;
 
-function Header() {
-  const [searchQuery, setSearchQuery] = useState('');
+const DropDownMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 300px;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+`;
 
-  const searchContext = useContext(SearchContext);
+const StyledUL = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
 
+const StyledLI = styled.li`
+  color: black;
+  padding: 8px 12px;
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.14);
+    cursor: pointer;
+  }
+`;
+
+const DropDownMenuContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const DropDownMenuButton = styled.div`
+  padding: 0;
+  width: 50px;
+  border: 0;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  outline: 0;
+  font-size: 40px;
+`;
+
+function Header() {  
+  const location = useLocation();
   const history = useHistory();
+  const container = useRef();
+
+  const darkModeContext = useContext(AppearanceContext);
+  const searchContext = useContext(SearchContext);
+  const loggedInContext = useContext(AccountContext);
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [open, setOpen] = useState(false);
+
+  const handleMenuOpen = () =>{
+    setOpen(!open);
+  };
+
   const handleInput = (event) => {
     event.preventDefault();
     searchContext.searchHandler(searchQuery);
     history.push('/');
   };
-
-  const darkModeContext = useContext(AppearanceContext);
 
   const handleToggle = () => {
     if (darkModeContext.darkMode) {
@@ -76,16 +128,57 @@ function Header() {
     }
   };
 
+  const isLoggedIn = !!loggedInContext.account;
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (container.current && !container.current.contains(event.target)) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [container]);
+
   return (
     <HeaderWrap theme={{ darkMode: darkModeContext.darkMode }}>
-      <ButtonLeft>Navigation</ButtonLeft>
+      <LinkButtonLeft
+        to={{
+          pathname: '/',
+        }}
+      >
+        Home
+      </LinkButtonLeft>
       <FormWrapper>
         <form onSubmit={handleInput}>
           <SearchField type="text" onChange={(e) => setSearchQuery(e.target.value)} />
         </form>
       </FormWrapper>
       <DarkModeToggleButton onChange={(e) => handleToggle(e.target.value)} />
-      <ButtonRight>Login</ButtonRight>
+      <DropDownMenuContainer ref={container}>
+        <DropDownMenuButton type="button" onClick={handleMenuOpen}>
+          <AvatarLogo />
+        </DropDownMenuButton>
+        {open && (
+          <DropDownMenu>
+            <StyledUL>
+              <StyledLI>
+                <Link
+                  to={{
+                    pathname: '/login',
+                    state: { background: location },
+                  }}
+                >
+                  Login
+                </Link>
+              </StyledLI>
+              <StyledLI>Favorites</StyledLI>
+            </StyledUL>
+          </DropDownMenu>
+        )}
+      </DropDownMenuContainer>
     </HeaderWrap>
   );
 }

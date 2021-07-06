@@ -44,7 +44,7 @@ function RelatedVideos(props) {
           setIsLoaded(true);
         }
       });
-  }, []);
+  }, [videoId]);
 
   if (errors) {
     return <h1>Error</h1>;
@@ -59,7 +59,7 @@ function RelatedVideos(props) {
       <h2>Related Videos</h2>
       {results.items.map((d) => {
         if (d.snippet) {
-          return RelatedVideoCard(d); // <- has useContext hook
+          return <RelatedVideoCard key={d.etag} item={d} />;
         }
       })}
       <EmptyDiv />
