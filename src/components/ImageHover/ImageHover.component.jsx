@@ -8,7 +8,7 @@ const ImageHover = styled.p`
   left: 0;
   right: 0;
   background: rgba(29, 106, 154, 0.72);
-  color: #fff;
+  color: #000;
   visibility: hidden;
   height: auto;
   opacity: 0;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 import Layout from '../Layout';
 import HomePage from '../../pages/Home';
@@ -7,11 +8,15 @@ import NotFound from '../../pages/NotFound';
 import Video from '../../pages/Video';
 import VideoLayout from '../VideoLayout';
 
+const BodyWrapperSwitch = styled(Switch)`
+  position: fixed;
+`;
+
 function Body(props) {
   const { searchTerm } = props;
 
   return (
-    <Switch>
+    <BodyWrapperSwitch>
       <Route exact path="/">
         <Layout>
           <HomePage search={searchTerm} />
@@ -27,7 +32,7 @@ function Body(props) {
           <NotFound />
         </Layout>
       </Route>
-    </Switch>
+    </BodyWrapperSwitch>
   );
 }
 

@@ -4,12 +4,16 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import './global.css';
 import SearchContextProvider from './contexts/SearchContextProvider';
+import AppearanceContextProvider from './contexts/AppearanceContextProvider';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <SearchContextProvider>
-      <App />
-    </SearchContextProvider>
+    <AppearanceContextProvider>
+      <SearchContextProvider>
+        <App />
+      </SearchContextProvider>
+    </AppearanceContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

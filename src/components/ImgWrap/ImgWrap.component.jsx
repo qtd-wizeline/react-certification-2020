@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 
 import CenteredImage from '../CenteredImage';
+
+import { AppearanceContext } from '../../contexts/AppearanceContextProvider';
 
 const ImageHoverText = styled.p`
   position: absolute;
@@ -9,8 +11,11 @@ const ImageHoverText = styled.p`
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(29, 106, 154, 0.72);
-  color: #fff;
+  /* background: rgba(204, 204, 204, 0.72);
+  color: #000; */
+  background: ${(props) =>
+    props.theme.darkMode ? `rgba(0, 0, 0, 0.72)` : `rgba(29, 106, 154, 0.72)`};
+  color: white;
   visibility: hidden;
   height: auto;
   opacity: 0;
@@ -40,10 +45,14 @@ const ImgWrapper = styled.div`
 `;
 
 function ImgWrap(props) {
+  const darkModeContext = useContext(AppearanceContext);
+
   return (
     <ImgWrapper>
       <CenteredImage image={props.image} />
-      <ImageHoverText>{props.hover_text}</ImageHoverText>
+      <ImageHoverText theme={{ darkMode: darkModeContext.darkMode }}>
+        {props.hover_text}
+      </ImageHoverText>
     </ImgWrapper>
   );
 }

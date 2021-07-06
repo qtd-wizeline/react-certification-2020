@@ -6,11 +6,16 @@ import mockRelatedVideos from '../../mock/youtube-mock-related-videos.json';
 import { API_KEY } from '../../utils/constants';
 
 const RelatedVideosWrapper = styled.div`
-  word-wrap: break-word;
   height: fit-content;
-  width: 20em;
+  text-align: center;
+  width: 100%;
   float: right;
   margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+  display: flex;
+  flex-direction: column;
 `;
 
 const EmptyDiv = styled.div`
@@ -39,7 +44,7 @@ function RelatedVideos(props) {
           setIsLoaded(true);
         }
       });
-  }, [videoId]);
+  }, []);
 
   if (errors) {
     return <h1>Error</h1>;
@@ -51,9 +56,10 @@ function RelatedVideos(props) {
 
   return (
     <RelatedVideosWrapper>
-      {results.items.map(function (d) {
+      <h2>Related Videos</h2>
+      {results.items.map((d) => {
         if (d.snippet) {
-          return RelatedVideoCard(d);
+          return RelatedVideoCard(d); // <- has useContext hook
         }
       })}
       <EmptyDiv />
