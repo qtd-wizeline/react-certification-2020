@@ -4,7 +4,8 @@ import VideoCard from '../VideoCard';
 import { VideoFeedContainer, VideoFeedItemWrapper } from './VideoFeed.styled';
 
 export default function VideoFeed() {
-  const { searchResult } = useContext(GlobalContext);
+  const [globalState] = useContext(GlobalContext);
+  const { searchResult } = globalState;
   return (
     <VideoFeedContainer>
       {searchResult.map((item) => (

@@ -12,7 +12,7 @@ import {
 } from './Header.styled';
 
 function Header() {
-  const { toggle, theme } = useContext(ThemeContext);
+  const [themeState, dispatch] = useContext(ThemeContext);
   return (
     <StyledHeader>
       <HeaderContainer>
@@ -20,7 +20,10 @@ function Header() {
         <SearchInput />
       </HeaderContainer>
       <HideOnMobileHeaderContainer>
-        <ToggleSwitch toggled={theme.name === 'dark'} onToggleCallback={toggle} />
+        <ToggleSwitch
+          toggled={themeState.theme.name === 'dark'}
+          onToggleCallback={() => dispatch({ type: 'toggle' })}
+        />
         <HeaderText>Dark Mode</HeaderText>
         <IconButton fontSize="1.5rem" svgIcon={faUserCircle} />
       </HideOnMobileHeaderContainer>
