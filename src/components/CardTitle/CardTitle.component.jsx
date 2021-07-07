@@ -16,24 +16,30 @@ const CardTitleText = styled.h4`
 `;
 
 function CardTitle(props) {
-  const videoId = props.item.id.videoId;
+  const { videoId } = props.item.id;
   const videoTitle = props.item.snippet.title;
   const videoDescription = props.item.snippet.description;
+  const { etag } = props.item;
+  const { fav } = props;
 
   const darkModeContext = useContext(AppearanceContext);
 
+  const path = () => {
+    const pathRoute = fav ? 'favorites' : 'video';
+    return {
+      pathname: `/${pathRoute}/${videoId}`,
+      state: {
+        videoId,
+        videoTitle,
+        videoDescription,
+        etag,
+      },
+    };
+  };
+
   return (
     <CardTitleDiv>
-      <Link
-        to={{
-          pathname: `/video/${videoId}`,
-          state: {
-            videoId,
-            videoTitle,
-            videoDescription,
-          },
-        }}
-      >
+      <Link to={path}>
         <CardTitleText theme={{ darkMode: darkModeContext.darkMode }}>
           {videoTitle}
         </CardTitleText>

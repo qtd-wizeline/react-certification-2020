@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-
-import { useAuth } from '../../providers/Auth';
+import { AccountContext } from '../../contexts/AccountContextProvider';
 
 function Private({ children, ...rest }) {
-  const { authenticated } = useAuth();
+  const loggedInContext = useContext(AccountContext);
+  const isLoggedIn = !!loggedInContext.account;
 
   return (
-    <Route {...rest} render={() => (authenticated ? children : <Redirect to="/" />)} />
+    <Route {...rest} render={() => (isLoggedIn ? children : <Redirect to="/login" />)} />
   );
 }
 

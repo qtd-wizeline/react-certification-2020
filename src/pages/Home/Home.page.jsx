@@ -52,7 +52,9 @@ function HomePage() {
   useEffect(() => {
     if (searchContext.query) {
       fetch(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${encodeURI(searchContext.query)}&type=video&videoType=any&key=${APIKey}`
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${encodeURI(
+          searchContext.query
+        )}&type=video&videoType=any&key=${APIKey}`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -81,9 +83,10 @@ function HomePage() {
     <HomePageWrapper>
       <Container>
         <Cards>
-          {results.items.map((d) => {
-            return <CardItem key={d.etag} item={d} />;
-          })}
+          {results &&
+            results.items.map((d) => {
+              return <CardItem key={d.etag} item={d} />;
+            })}
         </Cards>
       </Container>
     </HomePageWrapper>

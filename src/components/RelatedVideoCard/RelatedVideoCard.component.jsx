@@ -42,27 +42,30 @@ const VideoThumbnail = styled.img`
 function RelatedVideoCard(props) {
   const darkModeContext = useContext(AppearanceContext);
 
-  const { item } = props;
+  const { item, favVids } = props;
 
   const { videoId } = item.id;
 
   const videoTitle = item.snippet.title;
   const videoDescription = item.snippet.description;
+  const { etag } = item;
+
+  const path = () => {
+    const pathRoute = favVids ? 'favorites' : 'video';
+    return {
+      pathname: `/${pathRoute}/${videoId}`,
+      state: {
+        videoId,
+        videoTitle,
+        videoDescription,
+        etag,
+      },
+    };
+  };
 
   return (
     <CardWrapper key={item.etag} theme={{ darkMode: darkModeContext.darkMode }}>
-      <Link
-        data-testid="related-video-card"
-        to={{
-          pathname: `/video/${videoId}`,
-          state: {
-            videoId,
-            videoTitle,
-            videoDescription,
-          },
-        }}
-        key={item.etag}
-      >
+      <Link data-testid="related-video-card" to={path} key={item.etag}>
         <VideoThumbnailWrapper>
           <VideoThumbnail src={item.snippet.thumbnails.default.url} />
         </VideoThumbnailWrapper>

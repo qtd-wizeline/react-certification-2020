@@ -21,10 +21,14 @@ function AvatarLogo(props) {
 
   const img = loggedInContext.account
     ? loggedInContext.account.avatarUrl
-    : '../../../public/empty_avatar.png';
+    : './empty_avatar.png';
 
-  // return <AvatarImg src={img} />;
-  return <img src="../../../public/empty_avatar.png" alt="" />;
+  return (
+    <span>
+      <AvatarImg src={img} />
+    </span>
+  );
+  // return <img src="../../../public/empty_avatar.png" alt="" />;
 }
 
 export default AvatarLogo;

@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import CardItem from './index';
+import AppearanceContextProvider from '../../contexts/AppearanceContextProvider';
 // import mockData from './test_data/mock.json';
 
 describe('render CardItem Component', () => {
@@ -21,7 +22,13 @@ describe('render CardItem Component', () => {
   };
 
   test('CardItem element exists', () => {
-    render(<Router>{CardItem(testItem)}</Router>);
+    render(
+      <AppearanceContextProvider>
+        <Router>
+          {CardItem(testItem)}
+        </Router>
+      </AppearanceContextProvider>
+    );
     expect(screen.getByTestId('card-item')).toBeTruthy();
   });
 });

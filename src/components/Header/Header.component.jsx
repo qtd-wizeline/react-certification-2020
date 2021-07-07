@@ -28,10 +28,6 @@ const FormWrapper = styled.div`
   margin-right: auto;
 `;
 
-const LinkButtonRight = styled(LinkButtonLeft)`
-  float: right;
-`;
-
 const SearchField = styled.input`
   padding: 12px 15px;
   border-radius: 5px;
@@ -98,7 +94,7 @@ const DropDownMenuButton = styled.div`
   font-size: 40px;
 `;
 
-function Header() {  
+function Header() {
   const location = useLocation();
   const history = useHistory();
   const container = useRef();
@@ -110,7 +106,7 @@ function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [open, setOpen] = useState(false);
 
-  const handleMenuOpen = () =>{
+  const handleMenuOpen = () => {
     setOpen(!open);
   };
 
@@ -121,11 +117,12 @@ function Header() {
   };
 
   const handleToggle = () => {
-    if (darkModeContext.darkMode) {
-      darkModeContext.themeChangeHandler(false);
-    } else {
-      darkModeContext.themeChangeHandler(true);
-    }
+    darkModeContext.themeChangeHandler(!darkModeContext.darkMode);
+  };
+
+  const logMeOut = () => {
+    loggedInContext.accountChange(null);
+    setOpen(!open);
   };
 
   const isLoggedIn = !!loggedInContext.account;
@@ -164,17 +161,42 @@ function Header() {
         {open && (
           <DropDownMenu>
             <StyledUL>
-              <StyledLI>
-                <Link
-                  to={{
-                    pathname: '/login',
-                    state: { background: location },
-                  }}
-                >
-                  Login
-                </Link>
-              </StyledLI>
-              <StyledLI>Favorites</StyledLI>
+              {!isLoggedIn && (
+                <StyledLI>
+                  <Link
+                    to={{
+                      pathname: '/login',
+                      state: { background: location },
+                    }}
+                  >
+                    Login
+                  </Link>
+                </StyledLI>
+              )}
+              {isLoggedIn && (
+                <StyledLI>
+                  <Link
+                    to={{
+                      pathname: '/',
+                    }}
+                    onClick={logMeOut}
+                  >
+                    Logout
+                  </Link>
+                </StyledLI>
+              )}
+              {isLoggedIn && (
+                <StyledLI>
+                  <Link
+                    to={{
+                      pathname: '/favorites',
+                    }}
+                    onclick={handleMenuOpen}
+                  >
+                    Favorites
+                  </Link>
+                </StyledLI>
+              )}
             </StyledUL>
           </DropDownMenu>
         )}

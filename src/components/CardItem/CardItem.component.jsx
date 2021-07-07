@@ -18,7 +18,7 @@ const CardItemDiv = styled.div`
 
 function CardItem(props) {
   const darkModeContext = useContext(AppearanceContext);
-  const { item } = props;
+  const { item, fav } = props;
 
   return (
     <CardItemDiv
@@ -26,7 +26,7 @@ function CardItem(props) {
       theme={{ darkMode: darkModeContext.darkMode }}
       data-testid="card-item"
     >
-      <CardTitle item={item} />
+      <CardTitle item={item} fav={fav} />
       <ImgWrap
         image={item.snippet.thumbnails.medium.url}
         hover_text={item.snippet.description}

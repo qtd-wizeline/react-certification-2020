@@ -82,7 +82,8 @@ const ButtonWrapper = styled.div`
   float: right;
 `;
 
-function Video() {
+function FavoriteVideo(props) {
+  const { favVids } = props;
   const location = useLocation();
   const { videoId, videoTitle, videoDescription, etag } = location.state;
   const buildURL = `https://www.youtube.com/embed/${videoId}`;
@@ -92,16 +93,6 @@ function Video() {
 
   const isLoggedIn = !!loggedInContext.account;
 
-  const addToFavorites = () => {
-    const video = {
-      videoId,
-      title: videoTitle,
-      description: videoDescription,
-      etag,
-    };
-    loggedInContext.addFaveVideo(video);
-  };
-
   return (
     <VideoSection>
       <VideoDiv>
@@ -109,11 +100,6 @@ function Video() {
       </VideoDiv>
       <DescriptionAndRelatedVideo>
         <VideoDetailsCard theme={{ darkMode: darkModeContext.darkMode }}>
-          {isLoggedIn && (
-            <ButtonWrapper>
-              <FavButton onClick={addToFavorites}>Add to Favorites</FavButton>
-            </ButtonWrapper>
-          )}
           <VideoTitle theme={{ darkMode: darkModeContext.darkMode }}>
             {videoTitle}
           </VideoTitle>
@@ -121,10 +107,10 @@ function Video() {
             <p>{videoDescription}</p>
           </VideoDescription>
         </VideoDetailsCard>
-        <RelatedVideos videoId={videoId} />
+        <RelatedVideos favVids />
       </DescriptionAndRelatedVideo>
     </VideoSection>
   );
 }
 
-export default Video;
+export default FavoriteVideo;
