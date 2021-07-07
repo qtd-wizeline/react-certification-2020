@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useHistory } from "react-router-dom"; 
 import styled from 'styled-components';
+import { SearchContext } from '../../contexts/SearchContextProvider';
 
 const ButtonLeft = styled.button`
   left: 0%;
@@ -12,6 +14,9 @@ const ButtonLeft = styled.button`
   padding: 0.25em 1em;
   border: 2px solid black;
   border-radius: 3px;
+`;
+
+const FormWrapper = styled.div`
 `;
 
 const ButtonRight = styled.button`
@@ -35,7 +40,7 @@ const SearchField = styled.input`
   min-width: 400px;
 `;
 
-const Header = styled.header`
+const HeaderWrap = styled.header`
   text-align: center;
   color: white;
   margin: 0;
@@ -43,14 +48,31 @@ const Header = styled.header`
   background-color: black;
 `;
 
-function Component() {
+function Header() {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const searchContext = useContext(SearchContext);
+
+  const history = useHistory();
+  const handleInput = (event) => {
+    event.preventDefault();
+    searchContext.searchHandler(searchQuery);
+    history.push('/');
+  };
+
   return (
-    <Header>
+    <HeaderWrap>
       <ButtonLeft>Navigation</ButtonLeft>
-      <SearchField disabled />
       <ButtonRight>Login</ButtonRight>
-    </Header>
+      <FormWrapper>
+        <form onSubmit={handleInput}>
+          <SearchField type="text" onChange={(e) => setSearchQuery(e.target.value)} />
+        </form>
+      </FormWrapper>
+    </HeaderWrap>
   );
 }
 
-export default Component;
+export { SearchField };
+
+export default Header;

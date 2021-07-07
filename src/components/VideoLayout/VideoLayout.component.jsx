@@ -9,10 +9,11 @@ const LayoutWrapper = styled.main`
   justify-content: center;
   align-items: center;
   margin-top: 0rem;
+  margin-right: 0px;
 `;
 
-function Layout({ children }) {
+function VideoLayout({ children }) {
   return <LayoutWrapper>{children}</LayoutWrapper>;
 }
 
-export default Layout;
+export default VideoLayout;

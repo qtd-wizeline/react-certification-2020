@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import Header from '../Header';
@@ -24,10 +24,16 @@ function App() {
     };
   }, []);
 
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSubmit = (data) => {
+    setSearchTerm(data);
+  };
+
   return (
     <BrowserRouter>
-      <Header />
-      <Body />
+      <Header onSubmit={handleSubmit} />
+      <Body searchTerm={searchTerm} />
     </BrowserRouter>
   );
 }
