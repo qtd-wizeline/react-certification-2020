@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import FavouritePage from '../../pages/Favourite';
 import HomePage from '../../pages/Home';
-import VideoDetails from '../../pages/VideoDetails';
+import LoginPage from '../../pages/Login';
+import VideoDetailsPage from '../../pages/VideoDetails';
 import Layout from '../Layout';
 
 function App() {
@@ -13,7 +15,16 @@ function App() {
             <HomePage />
           </Route>
           <Route exact path="/video/:videoId">
-            <VideoDetails />
+            <VideoDetailsPage />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/favourite">
+            <FavouritePage />
+          </Route>
+          <Route exact path="/favourite/:videoId">
+            {/* <FavouritePage /> */}
           </Route>
         </Switch>
       </Layout>

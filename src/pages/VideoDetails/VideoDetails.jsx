@@ -1,17 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import VideoDetailsView from '../../components/VideoDetailsView/VideoDetailsView';
+import VideoDetailsRegularView from '../../components/VideoDetailsRegularView';
 import { StyledVideoDetailsPage, ContentWrapper } from './VideoDetails.styled';
 
-function VideoDetails() {
+function VideoDetailsPage() {
   const { videoId } = useParams();
   return (
     <StyledVideoDetailsPage>
       <ContentWrapper>
-        <VideoDetailsView videoId={videoId} />
+        <VideoDetailsRegularView videoId={videoId} />
       </ContentWrapper>
     </StyledVideoDetailsPage>
   );
 }
 
-export default VideoDetails;
+export default VideoDetailsPage;
