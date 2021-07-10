@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
 const CardItem = (props) => {
-  const { dispatch } = useContext(YoutubeVideosContext);
+  const { state, dispatch } = useContext(YoutubeVideosContext);
+  const { theme } = state;
 
   const setVideoSelected = (videoSelected) => {
     dispatch({ type: 'SET_VIDEOSELECTED', payload: videoSelected });
@@ -12,6 +13,8 @@ const CardItem = (props) => {
   return (
     <>
       <Card
+        fontColor={theme.ContentFontColor}
+        backgr={theme.CardBackground}
         onClick={() =>
           setVideoSelected({
             id: props.id,
@@ -37,12 +40,13 @@ const Image = styled.img`
 `;
 
 const Card = styled.div`
-  background: white;
+  background: ${(props) => props.backgr};
   margin-bottom: 2em;
   border-radius: 20px;
   flex: 0 1 23%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  color: ${(props) => props.fontColor};
 
   & a {
     color: black;

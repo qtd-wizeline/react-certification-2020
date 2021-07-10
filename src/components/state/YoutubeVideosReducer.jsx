@@ -1,9 +1,13 @@
 export const themes = {
   dark: {
-    NavHeadBackground: '#0e0303',
+    NavHeadBackground: '#4e0505',
+    ContentFontColor: 'white',
+    CardBackground: '#4e0505',
   },
   light: {
     NavHeadBackground: '#d84c4a',
+    ContentFontColor: 'black',
+    CardBackground: 'white',
   },
 };
 
