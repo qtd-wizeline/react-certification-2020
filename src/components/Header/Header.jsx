@@ -14,6 +14,7 @@ const Button = styled.button`
   background: ${(props) => props.color};
   color: white;
   border: 2px solid white;
+  cursor: pointer;
 `;
 
 const Header = () => {
