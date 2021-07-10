@@ -1,13 +1,15 @@
 import React, { useReducer } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
-import reducer from '../state/YoutubeVideosReducer';
+import reducer, { themes } from '../state/YoutubeVideosReducer';
 
 import HomePage from '../../pages/Home';
 
 const initialState = {
   searchTerm: 'wizeline',
   videoSelected: null,
+  theme: themes.light,
+  isThemeLight: true,
 };
 
 function App() {
