@@ -7,7 +7,8 @@ import YoutubeVideosContext from '../../components/state/YoutubeVideosContext';
 import './Home.styles.css';
 
 function HomePage() {
-  const { videoSelected } = useContext(YoutubeVideosContext);
+  const { state } = useContext(YoutubeVideosContext);
+  const { videoSelected } = state;
 
   return (
     <>

@@ -5,7 +5,8 @@ import useFetch from '../../hooks/useFetch';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
 const Content = () => {
-  const { searchTerm } = useContext(YoutubeVideosContext);
+  const { state } = useContext(YoutubeVideosContext);
+  const { searchTerm } = state;
 
   console.log('searchTerm: ', searchTerm);
   const uri = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchTerm}%202&type=video&videoType=any`;

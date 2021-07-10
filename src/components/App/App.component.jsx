@@ -1,21 +1,23 @@
-// import React, { useLayoutEffect } from 'react';
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
+import reducer from '../state/YoutubeVideosReducer';
 
 import HomePage from '../../pages/Home';
 
+const initialState = {
+  searchTerm: 'wizeline',
+  videoSelected: null,
+};
+
 function App() {
-  const [searchTerm, setSearchTerm] = useState('wizeline');
-  const [videoSelected, setVideoSelected] = useState();
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <YoutubeVideosContext.Provider
-            value={{ searchTerm, setSearchTerm, videoSelected, setVideoSelected }}
-          >
+          <YoutubeVideosContext.Provider value={{ state, dispatch }}>
             <HomePage />
           </YoutubeVideosContext.Provider>
         </Route>

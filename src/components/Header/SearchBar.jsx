@@ -3,7 +3,15 @@ import styled from 'styled-components';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
 const SearchBar = () => {
-  const { setSearchTerm, setVideoSelected } = useContext(YoutubeVideosContext);
+  const { dispatch } = useContext(YoutubeVideosContext);
+
+  const setSearchTerm = (searchTerm) => {
+    dispatch({ type: 'SET_SEARCHTERM', payload: searchTerm });
+  };
+
+  const setVideoSelected = (videoSelected) => {
+    dispatch({ type: 'SET_VIDEOSELECTED', payload: videoSelected });
+  };
 
   return (
     <Input

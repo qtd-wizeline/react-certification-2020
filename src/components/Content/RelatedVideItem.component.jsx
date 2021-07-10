@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import YoutubeVideosContext from '../state/YoutubeVideosContext';
 
 const RelatedVideoItem = (props) => {
-  const { setVideoSelected } = useContext(YoutubeVideosContext);
+  const { dispatch } = useContext(YoutubeVideosContext);
+  const setVideoSelected = (videoSelected) => {
+    dispatch({ type: 'SET_VIDEOSELECTED', payload: videoSelected });
+  };
+
   return (
     <>
       <Card

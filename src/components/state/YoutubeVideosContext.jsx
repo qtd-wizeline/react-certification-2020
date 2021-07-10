@@ -1,14 +1,8 @@
 import React from 'react';
 
 const YoutubeVideosContext = React.createContext({
-  searchTerm: 'wizeline',
-  setSearchTerm: () => {},
-  videoSelected: {
-    id: '',
-    title: '',
-    description: '',
-  },
-  setVideoSelected: () => {},
+  state: {},
+  dispatch: () => {},
 });
 
 export default YoutubeVideosContext;
